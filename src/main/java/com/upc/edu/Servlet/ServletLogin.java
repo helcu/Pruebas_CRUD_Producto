@@ -40,7 +40,7 @@ public class ServletLogin extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user);
             
-            request.getRequestDispatcher("/productList.jsp").forward(request, response);
+            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
         }
         
         request.getRequestDispatcher("/index.html").forward(request, response);
