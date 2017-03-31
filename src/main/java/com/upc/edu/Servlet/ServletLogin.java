@@ -38,8 +38,8 @@ public class ServletLogin extends HttpServlet {
         pass = request.getParameter("pass");
         
         
-        System.out.println(user);
-        System.out.println(pass);
+        //System.out.println(user);
+        //System.out.println(pass);
              
     }
 

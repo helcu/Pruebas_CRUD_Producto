@@ -5,10 +5,13 @@
  */
 package com.upc.edu.Singleton;
 
-/**
- *
- * @author Usuario
- */
+import com.upc.edu.entity.Producto;
+import java.util.List;
+
+
 public class Singleton {
     
+    List<Producto> list;
+    
+
 }
