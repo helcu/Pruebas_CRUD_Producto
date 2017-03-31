@@ -7,11 +7,13 @@ package com.upc.edu.Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,16 +33,17 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user;
-        String pass;
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+                
+        if(user.equals("admin") && pass.equals("admin")) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("currentUser", user);
+            
+            request.getRequestDispatcher("/productList.jsp").forward(request, response);
+        }
         
-        user= request.getParameter("user");
-        pass = request.getParameter("pass");
-        
-        
-        System.out.println(user);
-        System.out.println(pass);
-             
+        request.getRequestDispatcher("/index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
