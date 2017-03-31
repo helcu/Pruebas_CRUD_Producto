@@ -11,7 +11,35 @@ import java.util.List;
 
 public class Singleton {
     
-    List<Producto> list;
+    private List<Producto> list;
+    private static Singleton instance = null;
+    
+    public Singleton(){
+        
+    Producto cafe = new Producto();
+    cafe.setCodigo(1234);
+    cafe.setCategoria(987);
+    cafe.setDescontinuado(false);
+    cafe.setDescripcion("cafe cargado puro");
+    cafe.setNombre("cafe altomayo");
+    cafe.setPrecio(5.50);
+    cafe.setProductoNacional(true);
+    
+    list.add(cafe);
+    
+    
+    }
+    
+    public static Singleton getSingleton(){
+       if(instance == null){ 
+           instance = new Singleton();
+           
+       }
+       
+       return instance;
+        
+    }
+    
     
 
 }
