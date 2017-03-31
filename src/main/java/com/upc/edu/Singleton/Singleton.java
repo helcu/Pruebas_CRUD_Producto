@@ -5,10 +5,41 @@
  */
 package com.upc.edu.Singleton;
 
-/**
- *
- * @author Usuario
- */
+import com.upc.edu.entity.Producto;
+import java.util.List;
+
+
 public class Singleton {
     
+    private List<Producto> list;
+    private static Singleton instance = null;
+    
+    public Singleton(){
+        
+    Producto cafe = new Producto();
+    cafe.setCodigo(1234);
+    cafe.setCategoria(987);
+    cafe.setDescontinuado(false);
+    cafe.setDescripcion("cafe cargado puro");
+    cafe.setNombre("cafe altomayo");
+    cafe.setPrecio(5.50);
+    cafe.setProductoNacional(true);
+    
+    list.add(cafe);
+    
+    
+    }
+    
+    public static Singleton getSingleton(){
+       if(instance == null){ 
+           instance = new Singleton();
+           
+       }
+       
+       return instance;
+        
+    }
+    
+    
+
 }
