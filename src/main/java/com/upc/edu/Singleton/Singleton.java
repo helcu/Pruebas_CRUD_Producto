@@ -33,7 +33,7 @@ public class Singleton {
     public static Singleton getSingleton(){
        if(instance == null){ 
            instance = new Singleton();
-           
+        
        }
        
        return instance;
