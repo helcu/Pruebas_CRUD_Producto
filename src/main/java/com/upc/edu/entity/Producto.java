@@ -19,6 +19,18 @@ public class Producto {
     private boolean productoNacional;
     private boolean descontinuado;
 
+
+    public Producto(int codigo, String nombre, String descripcion, int categoria, double precio, boolean productoNacional, boolean descontinuado) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.productoNacional = productoNacional;
+        this.descontinuado = descontinuado;
+    }
+    
+    
     public int getCodigo() {
         return codigo;
     }

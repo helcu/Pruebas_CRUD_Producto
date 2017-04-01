@@ -5,6 +5,7 @@
  */
 package com.upc.edu.Servlet;
 
+import com.upc.edu.Singleton.Singleton;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -39,6 +40,7 @@ public class ServletLogin extends HttpServlet {
         if(user.equals("admin") && pass.equals("admin")) {
             HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user);
+            session.setAttribute("productos", Singleton.getSingleton().getList());
             
             request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
         }

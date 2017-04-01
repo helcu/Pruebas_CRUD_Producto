@@ -6,6 +6,7 @@
 package com.upc.edu.Singleton;
 
 import com.upc.edu.entity.Producto;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,29 +16,25 @@ public class Singleton {
     private static Singleton instance = null;
     
     public Singleton(){
+        list = new ArrayList();
+        agregarProducto(new Producto(list.size(), "cafe Altomayo", "cafe cargado puro", 1, 5.50, true, false));
+        agregarProducto(new Producto(list.size(), "cafe Nescafé", "cafe cargado puro", 1, 4.50, true, false));
         
-    Producto cafe = new Producto();
-    cafe.setCodigo(1234);
-    cafe.setCategoria(987);
-    cafe.setDescontinuado(false);
-    cafe.setDescripcion("cafe cargado puro");
-    cafe.setNombre("cafe altomayo");
-    cafe.setPrecio(5.50);
-    cafe.setProductoNacional(true);
-    
-    list.add(cafe);
-    
-    
     }
     
     public static Singleton getSingleton(){
        if(instance == null){ 
-           instance = new Singleton();
-           
-       }
-       
+           instance = new Singleton();           
+       }       
        return instance;
-        
+    }
+
+    public List<Producto> getList() {
+        return list;
+    }
+    
+    public void agregarProducto(Producto producto){
+        list.add(producto);
     }
     
     
