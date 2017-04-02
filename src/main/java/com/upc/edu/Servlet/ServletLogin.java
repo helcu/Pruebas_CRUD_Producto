@@ -6,8 +6,10 @@
 package com.upc.edu.Servlet;
 
 import com.upc.edu.Singleton.Singleton;
+import com.upc.edu.entity.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,9 +40,12 @@ public class ServletLogin extends HttpServlet {
         String pass = request.getParameter("pass");
                 
         if(user.equals("admin") && pass.equals("admin")) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
-            session.setAttribute("productos", Singleton.getSingleton().getList());
+            //HttpSession session = request.getSession(true);
+            //session.setAttribute("currentUser", user);
+            
+            Singleton productos = new Singleton();            
+            //session.setAttribute("productos", productos.getList());
+            request.setAttribute("productos", productos.getList());
             
             request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
         }
