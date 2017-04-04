@@ -114,7 +114,7 @@
             <h1>Administar Productos - <%= request.getSession().getAttribute("currentUser")%></h1>
 
             <a class="btn btn-success btn-link btn-xs" href="ServletAddEditProducto?productId=-1">
-                <i class="fa fa-info-circle"></i> Editar
+                <i class="fa fa-info-circle"></i> Nuevo producto
             </a> 
 
 

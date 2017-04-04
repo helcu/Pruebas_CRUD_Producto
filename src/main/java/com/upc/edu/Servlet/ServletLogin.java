@@ -38,18 +38,23 @@ public class ServletLogin extends HttpServlet {
             throws ServletException, IOException {
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
-                
-        if(user.equals("admin") && pass.equals("admin")) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
-            
-            Singleton productos = new Singleton();            
-            //session.setAttribute("productos", productos.getList());
-            request.setAttribute("productos", productos.getList());
-            
+
+        HttpSession session = request.getSession(true);
+        if (session != null) {
+            request.setAttribute("productos", Singleton.getSingleton().getList());
             request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
         }
-        
+
+        if (user.equals("admin") && pass.equals("admin")) {
+
+            session.setAttribute("currentUser", user);
+
+            Singleton productos = new Singleton();
+            //session.setAttribute("productos", productos.getList());
+            request.setAttribute("productos", productos.getList());
+            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
+        }
+
         request.getRequestDispatcher("/index.html").forward(request, response);
     }
 

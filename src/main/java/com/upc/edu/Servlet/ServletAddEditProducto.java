@@ -71,7 +71,11 @@ public class ServletAddEditProducto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        
+        request.setAttribute("productos", Singleton.getSingleton().getList());
+        request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
+        
     }
 
     /**

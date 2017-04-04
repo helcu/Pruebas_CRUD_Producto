@@ -16,7 +16,7 @@
 
         <% Producto product = (Producto) request.getAttribute("producto");%>
 
-        <form action="#" id="form" class="form-horizontal">
+        <form action="ServletAddEditProducto" id="form" class="form-horizontal" method="POST">
             <input type="hidden" value="" name="id"/> 
             <div class="form-body">
                 <div class="form-group">
@@ -104,9 +104,9 @@
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                         <button id="aceptar" name="aceptar" type="submit" class="btn btn-success">
-                            <i class="fa fa-save"/> Procesar
+                            <i class="fa fa-save"/> Aceptar
                         </button>
-                        <a class="btn btn-default" href="ServletListProduct"><i class="fa fa-close"></i> Cancelar</a>
+                        <a class="btn btn-default" href="ServletLogin"><i class="fa fa-close"></i> Cancelar</a>
                     </div>
                 </div>	
 
