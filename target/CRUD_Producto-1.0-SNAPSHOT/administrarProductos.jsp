@@ -108,9 +108,15 @@
     </head>
     <body>
 
+
         <section>
             <!--for demo wrap-->
-            <h1>Administar Productos</h1>
+            <h1>Administar Productos - <%= request.getSession().getAttribute("currentUser")%></h1>
+
+            <a class="btn btn-success btn-link btn-xs" href="ServletAddEditProducto?productId=-1">
+                <i class="fa fa-info-circle"></i> Editar
+            </a> 
+
 
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
@@ -144,8 +150,12 @@
                             <td><%=item.isProductoNacional()%></td>
                             <td><%=item.isDescontinuado()%></td>
                             <td>
-                                <button type="submit" value="Actualizar"/>
-                                <button type="submit" value="Actualizar"/>
+                                <a class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
+                                    <i class="fa fa-info-circle"></i> Editar
+                                </a> 
+                                <a class="btn btn-link btn-xs" href="ServletDeleteProduct?productId=<%=item.getCodigo()%>"> 
+                                    <i class="fa fa-remove"></i> Eliminar
+                                </a>
                             </td>
                         </tr>
                         <%}%>

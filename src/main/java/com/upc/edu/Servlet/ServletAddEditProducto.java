@@ -6,11 +6,8 @@
 package com.upc.edu.Servlet;
 
 import com.upc.edu.Singleton.Singleton;
-import com.upc.edu.entity.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +17,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Usuario
+ * @author NightmareTK
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletAddEditProducto", urlPatterns = {"/ServletAddEditProducto"})
+public class ServletAddEditProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,21 +33,16 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-                
-        if(user.equals("admin") && pass.equals("admin")) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
-            
-            Singleton productos = new Singleton();            
-            //session.setAttribute("productos", productos.getList());
-            request.setAttribute("productos", productos.getList());
-            
-            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        }
         
-        request.getRequestDispatcher("/index.html").forward(request, response);
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        
+        
+        if(productId != -1) {
+            //Edit product
+            request.setAttribute("producto", Singleton.getSingleton().getProductoById(productId));
+        }       
+        request.getRequestDispatcher("/addEditProducto.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

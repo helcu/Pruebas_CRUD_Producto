@@ -17,7 +17,7 @@ public class Singleton {
     public Singleton() {
         list = new ArrayList();
         agregarProducto(new Producto(list.size(), "cafe Altomayo", "cafe cargado puro", 1, 5.50, true, false));
-        agregarProducto(new Producto(list.size(), "cafe Nescafé", "cafe cargado puro", 1, 4.50, true, false));
+        agregarProducto(new Producto(list.size(), "cafe Nescafé", "cafe cargado puro", 1, 4.50, false, true));
 
     }
 
@@ -35,5 +35,9 @@ public class Singleton {
     public void agregarProducto(Producto producto) {
         list.add(producto);
     }
+    
+    public Producto getProductoById(int id) {
+        return list.get(id);
+    }    
 
 }
