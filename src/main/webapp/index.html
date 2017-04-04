@@ -109,9 +109,15 @@
         <div class="login-page">
             <div class="form">
                 <form class="login-form" method="POST" action="ServletLogin">
-                    <input id="user" name="user" type="text" placeholder="username"/>
-                    <input id="pass" name="pass"  type="password" placeholder="password"/>
-                    <button>login</button>
+                    <input id="user" name="user" type="text" placeholder="Usuario"
+                           required="required" autofocus="autofocus"
+                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')"/>
+                    <input id="pass" name="pass"  type="password" placeholder="Contraseña"
+                           required="required" 
+                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')" />
+                    <button>Iniciar sessión</button>
                 </form>
             </div>
         </div>

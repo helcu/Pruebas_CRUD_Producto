@@ -8,13 +8,11 @@ package com.upc.edu.Servlet;
 import com.upc.edu.Singleton.Singleton;
 import com.upc.edu.entity.Producto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -92,7 +90,6 @@ public class ServletAddEditProducto extends HttpServlet {
         precio = Double.parseDouble(request.getParameter("precio"));
         productoNacional = Boolean.parseBoolean(request.getParameter("isNacional"));
         descontinuado = Boolean.parseBoolean(request.getParameter("isDescontinuado"));
-        
 
         if (!request.getParameter("codigo").isEmpty()) {
             // Edit product

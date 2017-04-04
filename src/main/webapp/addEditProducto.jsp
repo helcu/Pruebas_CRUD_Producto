@@ -34,7 +34,9 @@
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getNombre()%>" 
                                id="nombre" name="nombre" class="form-control col-md-7 col-xs-12" type="text" 
-                               required = "required" maxlength="20">
+                               required = "required" maxlength="20" autofocus="autofocus"
+                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -43,7 +45,9 @@
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getDescripcion()%>" 
                                id="desc" name="desc" class="form-control col-md-7 col-xs-12" type="text" 
-                               required = "required" maxlength="50">
+                               required = "required" maxlength="50"
+                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -74,17 +78,17 @@
                     <div class="col-md-9">
 
                         <% if (product != null) {%>
+                        
 
-                        <input checked="<%=product.isProductoNacional() ? "true" : "false"%>"
+                        <input checked="<%=product.isProductoNacional() ? "True" : "False"%>"
+                               type="radio" name="isNacional" required="required"
+                               value="<%=product.isProductoNacional() ? "True" : "False"%>"> Nacional<br>
+                        <input checked="<%=!product.isProductoNacional() ? "True" : "False"%>"
                                type="radio" name="isNacional" 
-                               value="<%=product.isProductoNacional() ? "true" : "false"%>"> Nacional<br>
-                        <input checked="<%=!product.isProductoNacional() ? "true" : "false"%>"
-                               type="radio" name="isNacional" 
-                               value="<%=!product.isProductoNacional() ? "true" : "false"%>"> No nacional<br>
+                               value="<%=!product.isProductoNacional() ? "True" : "False"%>"> No nacional<br>
                         <%} else {%>
-                        <input type="radio" name="isNacional" value="true"> Nacional<br>
-                        <input type="radio" name="isNacional" value="false"> No nacional<br>
-
+                        <input type="radio" name="isNacional" value="True" required="required"> Nacional<br>
+                        <input type="radio" name="isNacional" value="False"> No nacional<br>
                         <%}%>
                         <span class="help-block"></span>   
                     </div>
@@ -94,11 +98,11 @@
                     <label class="control-label col-md-3">Descontinuado</label>
                     <div class="col-md-9">
                         <% if (product != null) {%>
-                        <input checked="<%=product.isDescontinuado() ? "true" : "false"%>"
+                        <input checked="<%=product.isDescontinuado() ? "True" : "False"%>"
                                type="checkbox" name="isDescontinuado"
-                               value="<%=product.isDescontinuado() ? "true" : "false"%>"> Descontinuado<br>
+                               value="<%=product.isDescontinuado() ? "True" : "False"%>"> Descontinuado<br>
                         <%} else {%>
-                        <input type="checkbox" name="isDescontinuado" value="false"> Descontinuado<br>
+                        <input type="checkbox" name="isDescontinuado" value="False"> Descontinuado<br>
                         <%}%>
                         <span class="help-block"></span>   
                     </div>
@@ -109,7 +113,7 @@
                         <button id="aceptar" name="aceptar" type="submit" class="btn btn-success">
                             <i class="fa fa-save"/> Aceptar
                         </button>
-                        <a class="btn btn-default" href="ServletLogin"><i class="fa fa-close"></i> Cancelar</a>
+                        <a class="btn btn-default" href="ServletAdministrarProductos"><i class="fa fa-close"></i> Cancelar</a>
                     </div>
                 </div>	
 

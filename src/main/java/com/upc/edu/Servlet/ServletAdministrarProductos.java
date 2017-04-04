@@ -12,14 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Usuario
+ * @author NightmareTK
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletAdministrarProductos", urlPatterns = {"/ServletAdministrarProductos"})
+public class ServletAdministrarProductos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +32,8 @@ public class ServletLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-
-        if (user.equals("admin") && pass.equals("admin")) {
-
-            HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
-
-            new Singleton();
-            
-            request.getRequestDispatcher("ServletAdministrarProductos").forward(request, response);
-        }
-
-        request.getRequestDispatcher("/index.html").forward(request, response);
+        request.setAttribute("productos", Singleton.getSingleton().getList());
+        request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
