@@ -36,7 +36,7 @@
                                id="nombre" name="nombre" class="form-control col-md-7 col-xs-12" type="text" 
                                required = "required" maxlength="20" autofocus="autofocus"
                                oninvalid="this.setCustomValidity('Este campo es obligatorio')"
-                           oninput="this.setCustomValidity('')">
+                               oninput="this.setCustomValidity('')">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                                id="desc" name="desc" class="form-control col-md-7 col-xs-12" type="text" 
                                required = "required" maxlength="50"
                                oninvalid="this.setCustomValidity('Este campo es obligatorio')"
-                           oninput="this.setCustomValidity('')">
+                               oninput="this.setCustomValidity('')">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -78,14 +78,25 @@
                     <div class="col-md-9">
 
                         <% if (product != null) {%>
-                        
+                        <% if (product.isProductoNacional()) { %>
+                        <input checked="true" type="radio" name="isNacional"
+                               required="required" value="true"> Nacional<br>
+                        <input checked="false" type="radio" name="isNacional"
+                               value="false"> No nacional<br>
+                        <%} else {%>
+                        <input checked="false" type="radio" name="isNacional"
+                               required="required" value="false"> Nacional<br>
+                        <input checked="true" type="radio" name="isNacional"
+                               value="true"> No nacional<br>
+                        <%}%>
 
+                        <!--
                         <input checked="<%=product.isProductoNacional() ? "True" : "False"%>"
                                type="radio" name="isNacional" required="required"
                                value="<%=product.isProductoNacional() ? "True" : "False"%>"> Nacional<br>
                         <input checked="<%=!product.isProductoNacional() ? "True" : "False"%>"
                                type="radio" name="isNacional" 
-                               value="<%=!product.isProductoNacional() ? "True" : "False"%>"> No nacional<br>
+                               value="<%=!product.isProductoNacional() ? "True" : "False"%>"> No nacional<br>-->
                         <%} else {%>
                         <input type="radio" name="isNacional" value="True" required="required"> Nacional<br>
                         <input type="radio" name="isNacional" value="False"> No nacional<br>
