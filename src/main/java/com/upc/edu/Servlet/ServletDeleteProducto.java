@@ -7,19 +7,19 @@ package com.upc.edu.Servlet;
 
 import com.upc.edu.Singleton.Singleton;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Usuario
+ * @author NightmareTK
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletDeleteProducto", urlPatterns = {"/ServletDeleteProducto"})
+public class ServletDeleteProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,26 +32,13 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
 
-        HttpSession session = request.getSession(true);
-        if (session != null) {
-            request.setAttribute("productos", Singleton.getSingleton().getList());
-            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        }
+        Singleton.getSingleton().deleteProducto(Integer.parseInt(request.getParameter("productId")));
 
-        if (user.equals("admin") && pass.equals("admin")) {
-
-            session.setAttribute("currentUser", user);
-
-            Singleton productos = new Singleton();
-            //session.setAttribute("productos", productos.getList());
-            request.setAttribute("productos", productos.getList());
-            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        }
-
-        request.getRequestDispatcher("/index.html").forward(request, response);
+        request.setAttribute(
+                "productos", Singleton.getSingleton().getList());
+        request.getRequestDispatcher(
+                "/administrarProductos.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

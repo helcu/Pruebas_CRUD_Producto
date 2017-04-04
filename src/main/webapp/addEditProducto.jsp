@@ -24,8 +24,8 @@
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getCodigo()%>"
                                readonly id="codigo" name="codigo" 
-                               class="form-control col-md-7 col-xs-12" type="text" 
-                               maxlength="15" minlength="3" placeholder="ID">
+                               class="form-control col-md-7 col-xs-12" 
+                               type="text" placeholder="ID">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getNombre()%>" 
                                id="nombre" name="nombre" class="form-control col-md-7 col-xs-12" type="text" 
-                               required = "required" maxlength="100" minlength="10">
+                               required = "required" maxlength="20">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getDescripcion()%>" 
                                id="desc" name="desc" class="form-control col-md-7 col-xs-12" type="text" 
-                               required = "required" maxlength="100" minlength="10">
+                               required = "required" maxlength="50">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
                     <label class="control-label col-md-3">Precio</label>
                     <div class="col-md-9">
                         <input value="<%=product == null ? "" : product.getPrecio()%>" 
-                               id="precio" name="precio" class="form-control col-md-7 col-xs-12" type="number" 
-                               required = "required" maxlength="10" minlength="2">
+                               id="precio" name="precio" class="form-control col-md-7 col-xs-12"
+                               type="number" required = "required">
                         <span class="help-block"></span>
                     </div>
                 </div>
@@ -76,12 +76,14 @@
                         <% if (product != null) {%>
 
                         <input checked="<%=product.isProductoNacional() ? "true" : "false"%>"
-                               type="radio" name="isNacional" value="nacional"> Nacional<br>
+                               type="radio" name="isNacional" 
+                               value="<%=product.isProductoNacional() ? "true" : "false"%>"> Nacional<br>
                         <input checked="<%=!product.isProductoNacional() ? "true" : "false"%>"
-                               type="radio" name="isNacional" value="noNacional"> No nacional<br>
+                               type="radio" name="isNacional" 
+                               value="<%=!product.isProductoNacional() ? "true" : "false"%>"> No nacional<br>
                         <%} else {%>
-                        <input type="radio" name="isNacional" value="nacional"> Nacional<br>
-                        <input type="radio" name="isNacional" value="noNacional"> No nacional<br>
+                        <input type="radio" name="isNacional" value="true"> Nacional<br>
+                        <input type="radio" name="isNacional" value="false"> No nacional<br>
 
                         <%}%>
                         <span class="help-block"></span>   
@@ -93,9 +95,10 @@
                     <div class="col-md-9">
                         <% if (product != null) {%>
                         <input checked="<%=product.isDescontinuado() ? "true" : "false"%>"
-                               type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
+                               type="checkbox" name="isDescontinuado"
+                               value="<%=product.isDescontinuado() ? "true" : "false"%>"> Descontinuado<br>
                         <%} else {%>
-                        <input type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
+                        <input type="checkbox" name="isDescontinuado" value="false"> Descontinuado<br>
                         <%}%>
                         <span class="help-block"></span>   
                     </div>

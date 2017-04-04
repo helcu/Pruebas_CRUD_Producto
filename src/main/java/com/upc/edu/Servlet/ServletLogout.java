@@ -5,8 +5,8 @@
  */
 package com.upc.edu.Servlet;
 
-import com.upc.edu.Singleton.Singleton;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Usuario
+ * @author NightmareTK
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletLogout", urlPatterns = {"/ServletLogout"})
+public class ServletLogout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +32,9 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
 
-        HttpSession session = request.getSession(true);
-        if (session != null) {
-            request.setAttribute("productos", Singleton.getSingleton().getList());
-            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        }
-
-        if (user.equals("admin") && pass.equals("admin")) {
-
-            session.setAttribute("currentUser", user);
-
-            Singleton productos = new Singleton();
-            //session.setAttribute("productos", productos.getList());
-            request.setAttribute("productos", productos.getList());
-            request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        }
+        HttpSession session = request.getSession();
+        session.invalidate();
 
         request.getRequestDispatcher("/index.html").forward(request, response);
     }

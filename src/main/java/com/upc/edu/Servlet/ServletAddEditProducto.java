@@ -6,6 +6,7 @@
 package com.upc.edu.Servlet;
 
 import com.upc.edu.Singleton.Singleton;
+import com.upc.edu.entity.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,16 +34,15 @@ public class ServletAddEditProducto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         int productId = Integer.parseInt(request.getParameter("productId"));
-        
-        
-        if(productId != -1) {
+
+        if (productId != -1) {
             //Edit product
             request.setAttribute("producto", Singleton.getSingleton().getProductoById(productId));
-        }       
+        }
         request.getRequestDispatcher("/addEditProducto.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -72,10 +72,45 @@ public class ServletAddEditProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+
+        int codigo = -1;
+        String nombre;
+        String descripcion;
+        int categoria;
+        double precio;
+        boolean productoNacional;
+        boolean descontinuado;
+
+        if (!request.getParameter("codigo").isEmpty()) {
+            // Edit product
+            codigo = Integer.parseInt(request.getParameter("codigo"));
+        }
+
+        nombre = request.getParameter("nombre");
+        descripcion = request.getParameter("desc");
+        categoria = Integer.parseInt(request.getParameter("categoria"));
+        precio = Double.parseDouble(request.getParameter("precio"));
+        productoNacional = Boolean.parseBoolean(request.getParameter("isNacional"));
+        descontinuado = Boolean.parseBoolean(request.getParameter("isDescontinuado"));
         
-        request.setAttribute("productos", Singleton.getSingleton().getList());
-        request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
-        
+
+        if (!request.getParameter("codigo").isEmpty()) {
+            // Edit product
+            Producto producto = new Producto(codigo, nombre, descripcion, categoria, precio, productoNacional, descontinuado);
+            Singleton.getSingleton()
+                    .updateProducto(producto);
+        } else {
+            //Add product            
+            Producto producto = new Producto(Singleton.getSingleton().getCodigo(), nombre, descripcion, categoria, precio, productoNacional, descontinuado);
+            Singleton.getSingleton()
+                    .agregarProducto(producto);
+        }
+
+        request.setAttribute(
+                "productos", Singleton.getSingleton().getList());
+        request.getRequestDispatcher(
+                "/administrarProductos.jsp").forward(request, response);
+
     }
 
     /**
