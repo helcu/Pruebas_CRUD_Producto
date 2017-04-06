@@ -157,6 +157,8 @@
                 color: #888;
             }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     </head>
     <body>
         <% Producto product = (Producto) request.getAttribute("producto");%>
@@ -193,11 +195,13 @@
                     </select>
                 </fieldset>
                 <fieldset>
+                    <label>Precio: </label>
                     <input value="<%=product == null ? "" : product.getPrecio()%>" 
-                           id="precio" name="precio" placeholder="Precio" type="number" 
+                           id="precio" name="precio" placeholder="Precio" type="number" step="0.01"
                            required = "required" maxlength="10" minlength="2">
                 </fieldset>
                 <fieldset>
+                    <label>Precio: </label>
                     <% if (product != null) {%>
 
                     <input checked="<%=product.isProductoNacional() ? "true" : "false"%>"
@@ -225,9 +229,11 @@
                         <i class="fa fa-save"/> Aceptar
                     </button>
       
-                    <button class="btn btn-success">
-                    <a class="btn btn-default" href="ServletLogin"><i class="fa fa-close"></i> Cancelar</a>
+                    <button class="btn btn-danger btn-block" type="button" href="ServletLogin">
+                        Cancelar
+                    <%--<a class="btn btn-default" href="ServletLogin"><i class="fa fa-close"></i> Cancelar</a --%>
                      </button>
+                    
                 </fieldset>
                 <p class="copyright">Designed by <a target="_blank" title="Colorlib">Luminous</a></p>
             </form>
@@ -319,5 +325,8 @@
         </div>
 
         --%>
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
