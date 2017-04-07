@@ -1,9 +1,3 @@
-<%-- 
-    Document   : productList
-    Created on : 31-mar-2017, 17:47:49
-    Author     : NightmareTK
---%>
-
 <%@page import="com.upc.edu.entity.Producto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -110,11 +104,17 @@
 
 
         <section>
+
+            <a class="btn btn-success btn-link btn-xs" href="ServletLogout">
+                <i class="fa fa-info-circle"></i> Cerrar Sesión
+            </a> 
+
             <!--for demo wrap-->
             <h1>Administar Productos - <%= request.getSession().getAttribute("currentUser")%></h1>
 
+
             <a class="btn btn-success btn-link btn-xs" href="ServletAddEditProducto?productId=-1">
-                <i class="fa fa-info-circle"></i> Nuevo producto
+                <i class="fa fa-info-circle"></i> Nuevo
             </a> 
 
 
@@ -127,8 +127,8 @@
                             <th>Descripción</th>
                             <th>Categoría</th>
                             <th>Precio</th>
-                            <th>productoNacional</th>
-                            <th>descontinuado</th>
+                            <th>Producto Nacional</th>
+                            <th>Descontinuado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -153,7 +153,7 @@
                                 <a class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
                                     <i class="fa fa-info-circle"></i> Editar
                                 </a> 
-                                <a class="btn btn-link btn-xs" href="ServletDeleteProduct?productId=<%=item.getCodigo()%>"> 
+                                <a class="btn btn-link btn-xs" href="ServletDeleteProducto?productId=<%=item.getCodigo()%>"> 
                                     <i class="fa fa-remove"></i> Eliminar
                                 </a>
                             </td>
@@ -164,8 +164,5 @@
             </div>
         </section>
 
-                    
-                    
-                    
     </body>
 </html>
