@@ -202,15 +202,6 @@
                 <fieldset>
                     <label>Precio: </label>
                     <% if (product != null) {%>
-
-                    <input checked="<%=product.isProductoNacional() ? "true" : "false"%>"
-                           type="radio" name="isNacional" value="nacional"> Nacional<br>
-                    <input checked="<%=!product.isProductoNacional() ? "true" : "false"%>"
-                           type="radio" name="isNacional" value="noNacional"> No nacional<br>
-                    <%} else {%>
-                    <input type="radio" name="isNacional" value="nacional"> Nacional<br>
-                    <input type="radio" name="isNacional" value="noNacional"> No nacional<br>
-
                     <%}%>
                 </fieldset>
                 <fieldset>
