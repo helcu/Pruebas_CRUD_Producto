@@ -5,11 +5,8 @@
  */
 package com.upc.edu.Servlet;
 
-import com.upc.edu.Singleton.Singleton;
-import com.upc.edu.entity.Producto;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NightmareTK
  */
-@WebServlet(name = "ServletAdministrarProductos", urlPatterns = {"/ServletAdministrarProductos"})
-public class ServletAdministrarProductos extends HttpServlet {
+@WebServlet(name = "ServletSearchProducto", urlPatterns = {"/ServletSearchProducto"})
+public class ServletSearchProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,8 +31,19 @@ public class ServletAdministrarProductos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletSearchProducto</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ServletSearchProducto at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,8 +58,7 @@ public class ServletAdministrarProductos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("productos", Singleton.getSingleton().getList());
-        request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -65,26 +72,11 @@ public class ServletAdministrarProductos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
-        String productInfo = request.getParameter("productInfo");
         
+        //String productInfo = request.getParameter("productInfo");
         
-        if(productInfo == null) {
-            doGet(request, response);
-        }
+        //productInfo
         
-        List<Producto> productos = Singleton.getSingleton().getList();
-        List<Producto> productosInfo = new ArrayList<>();
-        
-        for (Producto p : productos) {
-            if (p.getNombre().contains(productInfo)
-                    || p.getDescripcion().contains(productInfo)) {
-                productosInfo.add(p);
-            }
-        }
-        
-        request.setAttribute("productos", productosInfo);
-        request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);        
     }
 
     /**

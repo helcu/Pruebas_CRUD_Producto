@@ -19,7 +19,8 @@ public class Singleton {
         list = new ArrayList();
         agregarProducto(new Producto(codigo, "cafe Altomayo", "cafe cargado puro", 1, 5.50, true, false));
         agregarProducto(new Producto(codigo, "cafe Nescafé", "cafe cargado puro", 1, 4.50, false, true));
-
+        agregarProducto(new Producto(codigo, "USB Kingstone", "8 GB de almacenamiento", 4, 55.40, false, false));
+        agregarProducto(new Producto(codigo, "USB Kingsnote", "16 GB de almacenamiento", 4, 105.00, false, true));        
     }
 
     public static Singleton getSingleton() {

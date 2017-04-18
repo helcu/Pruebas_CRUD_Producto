@@ -156,39 +156,41 @@
             :-ms-input-placeholder {
                 color: #888;
             }
+
+            textarea {vertical-align:auto}​
         </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
     <body>
         <% Producto product = (Producto) request.getAttribute("producto");%>
         <div class="container">  
             <form id="contact" action="" method="post">
                 <input type="hidden" value="" name="id"/> 
-                <h3>Colorlib Contact Form</h3>
-                <h4>Contact us for custom quote</h4>
+                <h3><%= product != null ? "Editar" : "Agregar"%> producto</h3>
                 <fieldset>
                     <input  value="<%=product == null ? "" : product.getCodigo()%>"
                             readonly id="codigo" name="codigo" 
-                            type="text" 
-                            maxlength="15" minlength="3" placeholder="ID">
+                            type="text" placeholder="-ID autogenerado-">
                 </fieldset>
                 <fieldset>
                     <input placeholder="Nombre"value="<%=product == null ? "" : product.getNombre()%>" 
                            id="nombre" name="nombre" type="text" 
-                           required = "required" maxlength="100" minlength="10">
+                           required = "required" 
+                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
-                    <textarea value="<%=product == null ? "" : product.getDescripcion()%>" 
-                              id="desc" name="desc" placeholder="Descripcion" type="text" 
-                              required = "required" maxlength="100" minlength="10"></textarea>
+                    <textarea id="desc" name="desc" placeholder="Descripcion" type="text" 
+                              required = "required" oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                              oninput="this.setCustomValidity('')"><%=product == null ? "" : product.getDescripcion()%></textarea>
                 </fieldset>
                 <fieldset>
                     <label>Categoria: </label>
                     <select name="categoria" class="form-control">
                         <option value="1">café</option>
                         <option value="2">batería</option>
-                        <option value="3">lapicero</option>
+                        <option value="3">gaseosa</option>
                         <option value="4">USB</option>
                         <option value="5">celular</option>
                     </select>
@@ -196,17 +198,29 @@
                 <fieldset>
                     <label>Precio: </label>
                     <input value="<%=product == null ? "" : product.getPrecio()%>" 
-                           id="precio" name="precio" placeholder="Precio" type="number" step="0.01"
-                           required = "required" maxlength="10" minlength="2">
+                           id="precio" name="precio" placeholder="Precio"
+                           type="number" step="0.01" class="form-control"
+                           required = "required" oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
-                    <label>Precio: </label>
                     <% if (product != null) {%>
+                    <input checked="<%=product.isProductoNacional()%>"
+                           type="radio" name="isNacional" required="required"
+                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninput="this.setCustomValidity('')"
+                           value="<%=product.isProductoNacional()%>"> Nacional<br>
+                    <input checked="<%=!product.isProductoNacional()%>"
+                           type="radio" name="isNacional" 
+                           value="<%=!product.isProductoNacional()%>"> No nacional<br>
+                    <%} else {%>
+                    <input type="radio" name="isNacional" value="True" required="required"> Nacional<br>
+                    <input type="radio" name="isNacional" value="False"> No nacional<br>
                     <%}%>
                 </fieldset>
                 <fieldset>
                     <% if (product != null) {%>
-                    <input checked="<%=product.isDescontinuado() ? "true" : "false"%>"
+                    <input checked="<%=product.isDescontinuado()%>"
                            type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
                     <%} else {%>
                     <input type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
@@ -214,23 +228,57 @@
                 </fieldset>
 
                 <fieldset>
-
-                    <button id="aceptar" name="aceptar" type="submit" class="btn btn-success">
-                        <i class="fa fa-save"/> Aceptar
+                    <button id="aceptar" name="aceptar" type="submit" class="btn btn-success btn-block"
+                            data-toggle="modal" data-target="#ModalGuardar">
+                        Guardar
                     </button>
-      
-                    <button class="btn btn-danger btn-block" type="button" href="ServletLogin">
-                        Cancelar
-                    <%--<a class="btn btn-default" href="ServletLogin"><i class="fa fa-close"></i> Cancelar</a --%>
-                     </button>
+                    <a class="btn btn-danger btn-block" data-toggle="modal" data-target="#ModalCancelar"
+                       type="button">Cancelar</a>
+
                     
+                    <!--<div class="modal fade" id="ModalGuardar" role="dialog">
+                        <div class="modal-dialog">
+                            
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Confimación</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Estás seguro de <%= product != null ? "editar el " : "agregar el nuevo "%>producto?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary btn-block">Sí</button>
+                                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    
+                    <div class="modal fade" id="ModalCancelar" role="dialog">
+                        <div class="modal-dialog">
+                            
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Confimación</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Estás seguro de cancelar la operación?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-block">Sí</button>
+                                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </fieldset>
                 <p class="copyright">Designed by <a target="_blank" title="Colorlib">Luminous</a></p>
             </form>
         </div>
-       
-        
-        
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -33,20 +33,7 @@ public class ServletLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-
-        if (user.equals("admin") && pass.equals("admin")) {
-
-            HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
-
-            new Singleton();
-            
-            request.getRequestDispatcher("ServletAdministrarProductos").forward(request, response);
-        }
-
-        request.getRequestDispatcher("/index.html").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,7 +48,12 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -75,7 +67,25 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+
+        if (user.equals("admin") && pass.equals("admin")) {
+
+            HttpSession session = request.getSession(true);
+            session.setAttribute("currentUser", user);
+
+            new Singleton();
+            
+            request.getRequestDispatcher("ServletAdministrarProductos").forward(request, response);
+        }
+
+        request.getRequestDispatcher("/index.html").forward(request, response);
+        
+        
+        
     }
 
     /**

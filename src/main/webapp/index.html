@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>FastShop</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
 
@@ -106,19 +106,24 @@
         </style>
     </head>
     <body>
-        <div class="login-page">
-            <div class="form">
-                <form class="login-form" method="POST" action="ServletLogin">
-                    <input id="user" name="user" type="text" placeholder="Usuario"
-                           required="required" autofocus="autofocus"
-                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
-                           oninput="this.setCustomValidity('')"/>
-                    <input id="pass" name="pass"  type="password" placeholder="Contraseña"
-                           required="required" 
-                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
-                           oninput="this.setCustomValidity('')" />
-                    <button>Iniciar sessión</button>
-                </form>
+
+        <div class="container">
+            <h1>FastShop</h1>
+
+            <div class="login-page">
+                <div class="form">
+                    <form class="login-form" method="POST" action="ServletLogin">
+                        <input id="user" name="user" type="text" placeholder="Usuario"
+                               required="required" autofocus="autofocus"
+                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                               oninput="this.setCustomValidity('')"/>
+                        <input id="pass" name="pass"  type="password" placeholder="Contraseña"
+                               required="required" 
+                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                               oninput="this.setCustomValidity('')" />
+                        <button>Iniciar sessión</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Administrar Productos</title>
+        <title>FastShop - Administrar Productos</title>
         <style>
             h1{
                 font-size: 30px;
@@ -99,24 +99,45 @@
                 -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
             }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
     <body>
 
 
         <section>
 
-            <a class="btn btn-success btn-link btn-xs" href="ServletLogout">
+            <a class="btn btn-danger" href="ServletLogout">
                 <i class="fa fa-info-circle"></i> Cerrar Sesión
             </a> 
-
             <!--for demo wrap-->
             <h1>Administar Productos - <%= request.getSession().getAttribute("currentUser")%></h1>
 
 
-            <a class="btn btn-success btn-link btn-xs" href="ServletAddEditProducto?productId=-1">
-                <i class="fa fa-info-circle"></i> Nuevo
-            </a> 
+            <div class="row" style="margin-bottom: 2%">
+                <div class="col-lg-6">
+                    <form action="ServletAdministrarProductos" method="post">
+                        <div class="input-group">
+                            <input name="productInfo" type="text" class="form-control" placeholder="Buscar...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Filtrar</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <a class="btn btn-success btn-xs" href="ServletAddEditProducto?productId=-1">
+                                <i class="fa fa-info-circle"></i> Nuevo
+                            </a> 
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
 
+            Se ha eliminado el producto satisfactoriamente
 
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
@@ -153,9 +174,34 @@
                                 <a class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
                                     <i class="fa fa-info-circle"></i> Editar
                                 </a> 
-                                <a class="btn btn-link btn-xs" href="ServletDeleteProducto?productId=<%=item.getCodigo()%>"> 
+                                <a class="btn btn-link btn-xs" 
+                                   href="ServletDeleteProducto?productId=<%=item.getCodigo()%>"
+                                   data-toggle="modal" data-target="#ModalEliminar"
+                                   type="button"> 
                                     <i class="fa fa-remove"></i> Eliminar
                                 </a>
+
+
+                                <!--<div class="modal fade" id="ModalEliminar" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 style="color:black;" class="modal-title">Confimación</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p style="color:black;">¿Estas seguro de eliminar el producto?.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary btn-block">Sí</button>
+                                                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    -->
+
+
                             </td>
                         </tr>
                         <%}%>
@@ -164,5 +210,6 @@
             </div>
         </section>
 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
