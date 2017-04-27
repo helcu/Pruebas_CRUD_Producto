@@ -188,11 +188,11 @@
                 <fieldset>
                     <label>Categoria: </label>
                     <select name="categoria" class="form-control">
-                        <option value="1">café</option>
-                        <option value="2">batería</option>
-                        <option value="3">gaseosa</option>
-                        <option value="4">USB</option>
-                        <option value="5">celular</option>
+                        <option value="1" <%=product==null ? "" : product.getCategoria()==1 ? "selected" : ""%>>café</option>
+                        <option value="2" <%=product==null ? "" : product.getCategoria()==2 ? "selected" : ""%>>batería</option>
+                        <option value="3" <%=product==null ? "" : product.getCategoria()==3 ? "selected" : ""%>>gaseosa</option>
+                        <option value="4" <%=product==null ? "" : product.getCategoria()==4 ? "selected" : ""%>>USB</option>
+                        <option value="5" <%=product==null ? "" : product.getCategoria()==5 ? "selected" : ""%>>celular</option>
                     </select>
                 </fieldset>
                 <fieldset>
@@ -221,15 +221,15 @@
                 <fieldset>
                     <% if (product != null) {%>
                     <input checked="<%=product.isDescontinuado()%>"
-                           type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
+                           type="checkbox" name="isDescontinuado" value="True"> Descontinuado<br>
                     <%} else {%>
-                    <input type="checkbox" name="isDescontinuado" value="descontinuado"> Descontinuado<br>
+                    <input type="checkbox" name="isDescontinuado" value="True"> Descontinuado<br>
                     <%}%>
                 </fieldset>
 
                 <fieldset>
                     <button id="aceptar" name="aceptar" type="submit" class="btn btn-success btn-block"
-                            data-toggle="modal" data-target="#ModalGuardar">
+                            ><!-- data-toggle="modal" data-target="#ModalGuardar">-->
                         Guardar
                     </button>
                     <a class="btn btn-danger btn-block" data-toggle="modal" data-target="#ModalCancelar"

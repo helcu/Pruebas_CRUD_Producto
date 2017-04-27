@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.upc.edu.singleton.Singleton;
+import com.upc.edu.dao.ProductoDAO;
 
 /**
  *
@@ -36,7 +36,7 @@ public class ServletDeleteProducto extends HttpServlet {
             throws ServletException, IOException {
     	
         request.getRequestDispatcher(
-                "ServletAdministrarProductos").forward(request, response);
+                "ServletManageProductos").forward(request, response);
     }
 
     /**
@@ -52,12 +52,12 @@ public class ServletDeleteProducto extends HttpServlet {
             throws ServletException, IOException {
     	
     	if(request.getParameter("productoId") != null) {
-    		Singleton.getSingleton()
-    			.deleteProducto(Integer.parseInt(request.getParameter("productId")));
+    		ProductoDAO.getInstance()
+    			.delete(Integer.parseInt(request.getParameter("productId")));
     	}    	
 
     	request.getRequestDispatcher(
-                "ServletAdministrarProductos").forward(request, response);
+                "ServletManageProductos").forward(request, response);
     }
 
     /**

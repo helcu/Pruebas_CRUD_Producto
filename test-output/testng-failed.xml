@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [CategoriaSuite]">
+  <test name="CategoriaTest(failed)">
+    <parameter name="nombreUpd" value="Hyper Battery"/>
+    <parameter name="nombreAdd" value="Hype Battery"/>
+    <parameter name="isDescAdd" value="false"/>
+    <parameter name="descAdd" value="La mejor batería"/>
+    <parameter name="categAdd" value="2"/>
+    <parameter name="isNacAdd" value="true"/>
+    <parameter name="precAdd" value="5.35"/>
+    <classes>
+      <class name="com.upc.edu.test.ProductoTest">
+        <methods>
+          <include name="finMetodo"/>
+          <include name="inicioClase"/>
+          <include name="getProductosByInfo"/>
+          <include name="inicioMetodo"/>
+          <include name="finClase"/>
+        </methods>
+      </class> <!-- com.upc.edu.test.ProductoTest -->
+    </classes>
+  </test> <!-- CategoriaTest(failed) -->
+</suite> <!-- Failed suite [CategoriaSuite] -->

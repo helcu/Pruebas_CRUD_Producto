@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.upc.edu.singleton.Singleton;
+import com.upc.edu.dao.ProductoDAO;
 
 /**
  *
@@ -60,10 +60,8 @@ public class ServletLogin extends HttpServlet {
 
             final HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user);
-
-            new Singleton();
             
-            request.getRequestDispatcher("ServletAdministrarProductos").forward(request, response);
+            request.getRequestDispatcher("ServletManageProductos").forward(request, response);
         }
 
         request.getRequestDispatcher("/index.html").forward(request, response);

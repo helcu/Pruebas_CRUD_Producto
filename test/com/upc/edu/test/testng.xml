@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="CategoriaSuite" parallel="false">
+  <test name="CategoriaTest">
+  	<parameter name="nombreAdd" value="Hype Battery"/>
+  	<parameter name="descAdd" value="La mejor batería"/>
+  	<parameter name="categAdd" value="2"/>
+  	<parameter name="precAdd" value="5.35"/>
+  	<parameter name="isNacAdd" value="true"/>
+  	<parameter name="isDescAdd" value="false"/>
+  	
+  	<parameter name="nombreUpd" value="Hyper Battery"/>
+  	
+  	<parameter name="productoInfo" value="batería"></parameter>  	
+    <classes>
+      <class name="com.upc.edu.test.ProductoTest"/>
+    </classes>
+  </test> 
+</suite>

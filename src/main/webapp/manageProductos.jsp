@@ -117,7 +117,7 @@
 
             <div class="row" style="margin-bottom: 2%">
                 <div class="col-lg-6">
-                    <form action="ServletAdministrarProductos" method="post">
+                    <form action="ServletManageProductos" method="post">
                         <div class="input-group">
                             <input name="productInfo" type="text" class="form-control" placeholder="Buscar...">
                             <span class="input-group-btn">
@@ -136,8 +136,6 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
-
-            Se ha eliminado el producto satisfactoriamente
 
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
