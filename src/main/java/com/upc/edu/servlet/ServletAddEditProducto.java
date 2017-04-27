@@ -55,9 +55,8 @@ public class ServletAddEditProducto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
 
-        int codigo;
+
         String nombre;
         String descripcion;
         int categoria;
@@ -73,22 +72,9 @@ public class ServletAddEditProducto extends HttpServlet {
         productoNacional = Boolean.parseBoolean(request.getParameter("isNacional"));
         descontinuado = Boolean.parseBoolean(request.getParameter("isDescontinuado"));
 
-        if (!request.getParameter("codigo").isEmpty()) {
-            // Edit product
-        	codigo = Integer.parseInt(request.getParameter("codigo"));
-            
-            Singleton.getSingleton()
-                    .updateProducto(
-                    		new Producto(codigo,
-                    				nombre,
-                    				descripcion,
-                    				categoria,
-                    				precio, 
-                    				productoNacional,
-                    				descontinuado));
-        } else {
-            //Add product            
-            
+        if (request.getParameter("codigo").isEmpty()) {
+        	
+        	//Add product                        
             Singleton.getSingleton()
                     .agregarProducto(
                     		new Producto(Singleton.getSingleton().getCodigo(),
@@ -96,6 +82,18 @@ public class ServletAddEditProducto extends HttpServlet {
                     				descripcion,
                     				categoria,
                     				precio,
+                    				productoNacional,
+                    				descontinuado));
+        } else {
+            
+        	// Edit product            
+            Singleton.getSingleton()
+                    .updateProducto(
+                    		new Producto(Integer.parseInt(request.getParameter("codigo")),
+                    				nombre,
+                    				descripcion,
+                    				categoria,
+                    				precio, 
                     				productoNacional,
                     				descontinuado));
         }

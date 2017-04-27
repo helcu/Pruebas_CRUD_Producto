@@ -22,6 +22,9 @@ import com.upc.edu.singleton.Singleton;
 @WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 
+	static final String USER_USERNAME = "admin";
+	static final String USER_PASSWORD = "admin";
+	
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -48,13 +51,12 @@ public class ServletLogin extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+            throws ServletException, IOException {        
         
         final String user = request.getParameter("user");
         final String pass = request.getParameter("pass");
 
-        if ("admin".equals(user) && "admin".equals(pass)) {
+        if (USER_USERNAME.equals(user) && USER_PASSWORD.equals(pass)) {
 
             final HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user);

@@ -63,7 +63,7 @@ public class Singleton {
         productoOriginal.setDescontinuado(producto.isDescontinuado());
     }
 
-    public void deleteProducto(int id) {
+    public void deleteProducto(final int id) {
         list.remove(getProductoById(id));
     }
 
