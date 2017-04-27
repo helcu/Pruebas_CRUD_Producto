@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.upc.edu.Servlet;
+package com.upc.edu.servlet;
 
-import com.upc.edu.Singleton.Singleton;
 import com.upc.edu.entity.Producto;
+import com.upc.edu.singleton.Singleton;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,21 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ServletAdministrarProductos", urlPatterns = {"/ServletAdministrarProductos"})
 public class ServletAdministrarProductos extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-    }
-
+   
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -50,8 +37,10 @@ public class ServletAdministrarProductos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
         request.setAttribute("productos", Singleton.getSingleton().getList());
         request.getRequestDispatcher("/administrarProductos.jsp").forward(request, response);
+    
     }
 
     /**
@@ -66,20 +55,20 @@ public class ServletAdministrarProductos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 
-        String productInfo = request.getParameter("productInfo");
-        
+        final String productInfo = request.getParameter("productInfo");
+       
         
         if(productInfo == null) {
             doGet(request, response);
         }
         
-        List<Producto> productos = Singleton.getSingleton().getList();
-        List<Producto> productosInfo = new ArrayList<>();
+        final List<Producto> productos = Singleton.getSingleton().getList();
+        final List<Producto> productosInfo = new ArrayList<>();
         
-        for (Producto p : productos) {
-            if (p.getNombre().contains(productInfo)
-                    || p.getDescripcion().contains(productInfo)) {
-                productosInfo.add(p);
+        for (final Producto producto : productos) {
+            if (producto.getNombre().contains(productInfo)
+                    || producto.getDescripcion().contains(productInfo)) {
+                productosInfo.add(producto);
             }
         }
         

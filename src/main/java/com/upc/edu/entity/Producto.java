@@ -20,7 +20,11 @@ public class Producto {
     private boolean descontinuado;
 
 
-    public Producto(int codigo, String nombre, String descripcion, int categoria, double precio, boolean productoNacional, boolean descontinuado) {
+    public Producto(final int codigo, final String nombre,
+    		final String descripcion, final int categoria,
+    		final double precio, final boolean productoNacional, 
+    		final boolean descontinuado) {
+    	
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -31,59 +35,59 @@ public class Producto {
     }
     
     
-    public int getCodigo() {
+    public final int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public final void setCodigo(final int codigo) {
         this.codigo = codigo;
     }
 
-    public String getNombre() {
+    public final String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public final void setNombre(final String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+    public final String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public final void setDescripcion(final String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public int getCategoria() {
+    public final int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public final void setCategoria(final int categoria) {
         this.categoria = categoria;
     }
 
-    public double getPrecio() {
+    public final double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public final void setPrecio(final double precio) {
         this.precio = precio;
     }
 
-    public boolean isProductoNacional() {
+    public final boolean isProductoNacional() {
         return productoNacional;
     }
 
-    public void setProductoNacional(boolean productoNacional) {
+    public final void setProductoNacional(final boolean productoNacional) {
         this.productoNacional = productoNacional;
     }
 
-    public boolean isDescontinuado() {
+    public final boolean isDescontinuado() {
         return descontinuado;
     }
 
-    public void setDescontinuado(boolean descontinuado) {
+    public final void setDescontinuado(final boolean descontinuado) {
         this.descontinuado = descontinuado;
     }
     

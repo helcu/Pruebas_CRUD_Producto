@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.upc.edu.Servlet;
+package com.upc.edu.servlet;
 
-import com.upc.edu.Singleton.Singleton;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.upc.edu.singleton.Singleton;
+
 /**
  *
  * @author Usuario
@@ -21,21 +22,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-    }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -48,12 +35,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-        
-        
-        
+    	request.getRequestDispatcher("/index.html").forward(request, response);
     }
 
     /**
@@ -69,12 +51,12 @@ public class ServletLogin extends HttpServlet {
             throws ServletException, IOException {
         
         
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
+        final String user = request.getParameter("user");
+        final String pass = request.getParameter("pass");
 
-        if (user.equals("admin") && pass.equals("admin")) {
+        if ("admin".equals(user) && "admin".equals(pass)) {
 
-            HttpSession session = request.getSession(true);
+            final HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user);
 
             new Singleton();
@@ -83,8 +65,6 @@ public class ServletLogin extends HttpServlet {
         }
 
         request.getRequestDispatcher("/index.html").forward(request, response);
-        
-        
         
     }
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.upc.edu.Singleton;
+package com.upc.edu.singleton;
 
 import com.upc.edu.entity.Producto;
 import java.util.ArrayList;
@@ -11,12 +11,13 @@ import java.util.List;
 
 public class Singleton {
 
-    private List<Producto> list;
-    private static Singleton instance = null;
-    int codigo = 0;
+    private final List<Producto> list;
+    private static Singleton instance;
+    int codigo;
 
     public Singleton() {
-        list = new ArrayList();
+    	codigo = 0;
+        list = new ArrayList<>();
         agregarProducto(new Producto(codigo, "cafe Altomayo", "cafe cargado puro", 1, 5.50, true, false));
         agregarProducto(new Producto(codigo, "cafe Nescafé", "cafe cargado puro", 1, 4.50, false, true));
         agregarProducto(new Producto(codigo, "USB Kingstone", "8 GB de almacenamiento", 4, 55.40, false, false));
@@ -38,28 +39,28 @@ public class Singleton {
         return codigo;
     }
 
-    public void agregarProducto(Producto producto) {
+    public void agregarProducto(final Producto producto) {
         list.add(producto);
         codigo++;
     }
 
-    public Producto getProductoById(int id) {
-        for (Producto p : list) {
-            if (p.getCodigo() == id) {
-                return p;
+    public Producto getProductoById(final int id) {        
+    	for (final Producto producto : list) {
+            if (producto.getCodigo() == id) {
+                return producto;
             }
         }
         return null;
     }
 
-    public void updateProducto(Producto p) {
-        Producto productoOriginal = list.get(p.getCodigo());
-        productoOriginal.setNombre(p.getNombre());
-        productoOriginal.setDescripcion(p.getDescripcion());
-        productoOriginal.setCategoria(p.getCategoria());
-        productoOriginal.setPrecio(p.getPrecio());
-        productoOriginal.setProductoNacional(p.isProductoNacional());
-        productoOriginal.setDescontinuado(p.isDescontinuado());
+    public void updateProducto(final Producto producto) {
+        final Producto productoOriginal = list.get(producto.getCodigo());
+        productoOriginal.setNombre(producto.getNombre());
+        productoOriginal.setDescripcion(producto.getDescripcion());
+        productoOriginal.setCategoria(producto.getCategoria());
+        productoOriginal.setPrecio(producto.getPrecio());
+        productoOriginal.setProductoNacional(producto.isProductoNacional());
+        productoOriginal.setDescontinuado(producto.isDescontinuado());
     }
 
     public void deleteProducto(int id) {
