@@ -8,6 +8,7 @@ package com.upc.edu.servlet;
 import com.upc.edu.business.ProductoBusiness;
 import com.upc.edu.dao.ProductoDAO;
 import com.upc.edu.entity.Producto;
+import com.upc.edu.helpers.MessageHelper;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -105,6 +106,9 @@ public class ServletAddEditProducto extends HttpServlet {
 		    				precio,
 		    				productoNacional,
 		    				descontinuado));
+            
+            request.setAttribute("message", MessageHelper.messageAddProducto);
+            
         } else {
             
         	// Edit product        
@@ -117,6 +121,8 @@ public class ServletAddEditProducto extends HttpServlet {
             				precio, 
             				productoNacional,
             				descontinuado));
+        	
+        	request.setAttribute("message", MessageHelper.messageEditProduct);
         }
         
         request.getRequestDispatcher("ServletManageProductos").forward(request, response);

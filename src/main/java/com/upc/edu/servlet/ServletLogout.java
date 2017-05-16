@@ -34,10 +34,11 @@ public class ServletLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    	final HttpSession session = request.getSession();
-        session.invalidate();
+    	final HttpSession session = request.getSession(false);
+    	if(session!=null)
+    		session.invalidate();
 
-        request.getRequestDispatcher("/index.html").forward(request, response);    	
+        request.getRequestDispatcher("/index.jsp").forward(request, response);    	
     }
 
     /**
@@ -55,7 +56,7 @@ public class ServletLogout extends HttpServlet {
     	final HttpSession session = request.getSession();
         session.invalidate();
 
-        request.getRequestDispatcher("/index.html").forward(request, response);    	
+        request.getRequestDispatcher("/index.jsp").forward(request, response);    	
     }
 
     /**

@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<%@page import="com.upc.edu.helpers.MessageHelper"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <title>FastShop</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>FastShop</title>
+<style>
 
             .login-page {
                 width: 360px;
@@ -104,24 +107,29 @@
                 -moz-osx-font-smoothing: grayscale;      
             }
         </style>
-    </head>
-    <body>
+	</head>
+	<body>
+	
+		<% String message = (String) request.getAttribute("message"); %>
+		<% String message2 = (String) request.getAttribute("message2"); %>
 
-        <div class="container">
+    	<div class="container">
             <h1>FastShop</h1>
 
             <div class="login-page">
                 <div class="form">
                     <form class="login-form" method="POST" action="ServletLogin">
+                    	<p id="message"> <%= message == null ? "" : message%></p>
                         <input id="user" name="user" type="text" placeholder="Usuario"
                                required="required" autofocus="autofocus"
-                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                               oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                                oninput="this.setCustomValidity('')"/>
-                        <input id="pass" name="pass"  type="password" placeholder="ContraseÃ±a"
+                        <p id="message2"> <%= message2 == null ? "" : message2%></p>
+                        <input id="pass" name="pass"  type="password" placeholder="Contraseña"
                                required="required" 
-                               oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                               oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                                oninput="this.setCustomValidity('')" />
-                        <button>Iniciar sesiÃ³n</button>
+                        <button>Iniciar sesión</button>
                     </form>
                 </div>
             </div>

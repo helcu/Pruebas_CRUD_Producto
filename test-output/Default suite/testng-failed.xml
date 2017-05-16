@@ -8,8 +8,9 @@
           <include name="finMetodo"/>
           <include name="inicioClase"/>
           <include name="addProducto"/>
+          <include name="getProductoByCodigo"/>
           <include name="deleteProducto"/>
-          <include name="getProducto"/>
+          <include name="getProductosByInfo"/>
           <include name="inicioMetodo"/>
           <include name="finClase"/>
           <include name="updateProducto"/>

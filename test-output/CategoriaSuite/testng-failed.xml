@@ -3,6 +3,7 @@
 <suite name="Failed suite [CategoriaSuite]">
   <test name="CategoriaTest(failed)">
     <parameter name="nombreUpd" value="Hyper Battery"/>
+    <parameter name="productoInfo" value="batería"/>
     <parameter name="nombreAdd" value="Hype Battery"/>
     <parameter name="isDescAdd" value="false"/>
     <parameter name="descAdd" value="La mejor batería"/>
@@ -14,9 +15,12 @@
         <methods>
           <include name="finMetodo"/>
           <include name="inicioClase"/>
-          <include name="getProductosByInfo"/>
+          <include name="addProducto"/>
+          <include name="getProductoByCodigo"/>
+          <include name="deleteProducto"/>
           <include name="inicioMetodo"/>
           <include name="finClase"/>
+          <include name="updateProducto"/>
         </methods>
       </class> <!-- com.upc.edu.test.ProductoTest -->
     </classes>

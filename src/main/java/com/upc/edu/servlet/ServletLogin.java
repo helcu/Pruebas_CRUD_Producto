@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.upc.edu.dao.ProductoDAO;
+import com.upc.edu.helpers.MessageHelper;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	request.getRequestDispatcher("/index.html").forward(request, response);
+    	request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     /**
@@ -55,17 +56,18 @@ public class ServletLogin extends HttpServlet {
         
         final String user = request.getParameter("user");
         final String pass = request.getParameter("pass");
-
+        
+        
         if (USER_USERNAME.equals(user) && USER_PASSWORD.equals(pass)) {
 
-            final HttpSession session = request.getSession(true);
-            session.setAttribute("currentUser", user);
+            final HttpSession session = request.getSession(false);
+            if(session!=null)
+              session.setAttribute("currentUser", user);
             
             request.getRequestDispatcher("ServletManageProductos").forward(request, response);
-        }
+        }        
 
-        request.getRequestDispatcher("/index.html").forward(request, response);
-        
+        request.getRequestDispatcher("/index.jsp").forward(request, response);        
     }
 
     /**

@@ -1,3 +1,4 @@
+<%@page import="com.upc.edu.helpers.MessageHelper"%>
 <%@page import="com.upc.edu.entity.Producto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -112,8 +113,7 @@
                 <i class="fa fa-info-circle"></i> Cerrar Sesión
             </a> 
             <!--for demo wrap-->
-            <h1>Administar Productos - <%= request.getSession().getAttribute("currentUser")%></h1>
-
+            <h1>Administrar Productos</h1>
 
             <div class="row" style="margin-bottom: 2%">
                 <div class="col-lg-6">
@@ -136,6 +136,10 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+            
+            <% String message = (String) request.getAttribute("message"); %>
+            
+            <h3 id="message"> <%= message == null ? "" : message%></h3>
 
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
@@ -172,34 +176,12 @@
                                 <a class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
                                     <i class="fa fa-info-circle"></i> Editar
                                 </a> 
-                                <a class="btn btn-link btn-xs" 
-                                   href="ServletDeleteProducto?productId=<%=item.getCodigo()%>"
+                                <a class="btn btn-link btn-xs listId" 
                                    data-toggle="modal" data-target="#ModalEliminar"
+                                   data-id="<%=item.getCodigo()%>"
                                    type="button"> 
                                     <i class="fa fa-remove"></i> Eliminar
-                                </a>
-
-
-                                <!--<div class="modal fade" id="ModalEliminar" role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 style="color:black;" class="modal-title">Confimación</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p style="color:black;">¿Estas seguro de eliminar el producto?.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary btn-block">Sí</button>
-                                                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>    -->
-
-
+                                </a>                                
                             </td>
                         </tr>
                         <%}%>
@@ -207,6 +189,34 @@
                 </table>
             </div>
         </section>
+        
+        <div class="modal fade" id="ModalEliminar" role="dialog">
+	        <div class="modal-dialog">
+	
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                    <h4 style="color:black;" class="modal-title">Confimación</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <p style="color:black;"><%= MessageHelper.messageConfDeleteProducto %></p>
+	                </div>
+	                <div class="modal-footer">
+	                    <a id="DeleteYesButton" href="#" class="btn btn-primary btn-block">Sí</a>
+	                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+		<script>
+			$('.listId').click(function()
+		    {
+		        var id=$(this).attr('data-id');
+		        var deleteYesButton = document.getElementById("DeleteYesButton");
+		        deleteYesButton.href = "ServletDeleteProducto?productoId="+id;
+		    });
+		</script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>

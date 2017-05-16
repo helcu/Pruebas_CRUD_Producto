@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.upc.edu.dao.ProductoDAO;
+import com.upc.edu.helpers.MessageHelper;
 
 /**
  *
@@ -35,7 +36,15 @@ public class ServletDeleteProducto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-        request.getRequestDispatcher(
+    	    	
+    	if(request.getParameter("productoId") != null) {
+    		ProductoDAO.getInstance()
+    			.delete(Integer.parseInt(request.getParameter("productoId")));
+    		
+    		request.setAttribute("message", MessageHelper.messageDeleteProducto);    		
+    	}    	
+
+    	request.getRequestDispatcher(
                 "ServletManageProductos").forward(request, response);
     }
 
@@ -53,7 +62,9 @@ public class ServletDeleteProducto extends HttpServlet {
     	
     	if(request.getParameter("productoId") != null) {
     		ProductoDAO.getInstance()
-    			.delete(Integer.parseInt(request.getParameter("productId")));
+    			.delete(Integer.parseInt(request.getParameter("productoId")));
+    		
+    		request.setAttribute("message", MessageHelper.messageDeleteProducto);  
     	}    	
 
     	request.getRequestDispatcher(

@@ -1,4 +1,5 @@
 package com.upc.edu.test;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
@@ -16,8 +17,14 @@ import com.upc.edu.entity.Producto;
 
 public class ProductoTest {
   
-	private final ProductoBusiness productoBusiness = new ProductoBusiness();
+	private final ProductoBusiness productoBusiness;
 	private static Producto producto;
+	
+	
+	public ProductoTest() {
+		productoBusiness = new ProductoBusiness();
+	}
+	
 	
 	@BeforeClass
 	public void inicioClase() {
@@ -55,8 +62,7 @@ public class ProductoTest {
 			producto = new Producto(-1, nombreInsertar, 
 					descInsertar, categInsertar, precInsertar, isNacInsertar, isDescInsertar);
 			productoBusiness.add(producto);
-			Assert.assertTrue(producto.getCodigo() != -1 
-					&& nombreInsertar.equals(producto.getNombre()));
+			assertTrue(nombreInsertar.equals(producto.getNombre()));
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();
@@ -70,8 +76,7 @@ public class ProductoTest {
 			System.out.println("UPDATE PRODUCTO");
 			producto.setNombre(nombreUpd);
 			productoBusiness.update(producto);
-			Assert.assertTrue(producto.getCodigo() != -1 
-					&& nombreUpd.equals(producto.getNombre()));
+			assertTrue(nombreUpd.equals(producto.getNombre()));
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();
@@ -82,8 +87,8 @@ public class ProductoTest {
 	public void getProductoByCodigo(){
 		try{
 			System.out.println("GET PRODUCTO BY CODIGO");
-			Producto productoBuscado = productoBusiness.getByCodigo(producto.getCodigo());
-			Assert.assertEquals(producto, productoBuscado);
+			final Producto productoBuscado = productoBusiness.getByCodigo(producto.getCodigo());
+			assertEquals(producto, productoBuscado);
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();
@@ -94,8 +99,8 @@ public class ProductoTest {
 	public void getProductos(){
 		try{
 			System.out.println("GET PRODUCTOS");
-			List<Producto> productos = productoBusiness.getProductos();
-			Assert.assertTrue(productos != null);
+			final List<Producto> productos = productoBusiness.getProductos();
+			assertTrue(productos != null);
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();
@@ -107,23 +112,21 @@ public class ProductoTest {
 	public void getProductosByInfo(String productoInfo){
 		try{
 			System.out.println("GET PRODUCTOS BY INFO");
-			List<Producto> productos = productoBusiness.getProductosByInfo(productoInfo);
-			Assert.assertTrue(productos != null);
+			final List<Producto> productos = productoBusiness.getProductosByInfo(productoInfo);
+			assertTrue(productos != null);
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();
 		}
-	}
-	
-	
+	}	
 	
 	@Test(dependsOnMethods={"getProductoByCodigo"}, timeOut=1000)
 	public void deleteProducto(){
 		try{
 			System.out.println("DELETE PRODUCTO");
-			int codigo = producto.getCodigo();
+			final int codigo = producto.getCodigo();
 			productoBusiness.delete(codigo);
-			Assert.assertEquals(productoBusiness.getByCodigo(codigo), null);
+			assertEquals(productoBusiness.getByCodigo(codigo), null);
 		}catch(Exception e){
 			e.printStackTrace();
 			Assert.fail();

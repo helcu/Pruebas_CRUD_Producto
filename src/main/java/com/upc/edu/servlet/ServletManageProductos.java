@@ -39,6 +39,9 @@ public class ServletManageProductos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
+    	
+    	
+    	
     	final ProductoBusiness productoBusiness = new ProductoBusiness();
     	
         request.setAttribute("productos", productoBusiness.getProductos());

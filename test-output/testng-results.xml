@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="CategoriaSuite" duration-ms="193" started-at="2017-04-27T15:26:23Z" finished-at="2017-04-27T15:26:23Z">
+  <suite name="CategoriaSuite" duration-ms="157" started-at="2017-05-16T02:01:39Z" finished-at="2017-05-16T02:01:39Z">
     <groups>
     </groups>
-    <test name="CategoriaTest" duration-ms="193" started-at="2017-04-27T15:26:23Z" finished-at="2017-04-27T15:26:23Z">
+    <test name="CategoriaTest" duration-ms="157" started-at="2017-05-16T02:01:39Z" finished-at="2017-05-16T02:01:39Z">
       <class name="com.upc.edu.test.ProductoTest">
-        <test-method status="PASS" signature="inicioMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="inicioMetodo" is-config="true" duration-ms="31" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="inicioMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="inicioMetodo" is-config="true" duration-ms="10" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioMetodo -->
-        <test-method status="PASS" signature="inicioClase()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="inicioClase" is-config="true" duration-ms="1" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="inicioClase()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="inicioClase" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioClase -->
-        <test-method status="PASS" signature="addProducto(java.lang.String, java.lang.String, int, double, boolean, boolean)[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="addProducto" duration-ms="36" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="addProducto(java.lang.String, java.lang.String, int, double, boolean, boolean)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="addProducto" duration-ms="79" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <params>
             <param index="0">
               <value>
@@ -51,11 +51,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addProducto -->
-        <test-method status="PASS" signature="getProductos()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="getProductos" duration-ms="4" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="getProductos()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductos" duration-ms="4" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductos -->
-        <test-method status="PASS" signature="getProductosByInfo(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="getProductosByInfo" duration-ms="4" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="getProductosByInfo(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductosByInfo" duration-ms="6" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <params>
             <param index="0">
               <value>
@@ -66,7 +66,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductosByInfo -->
-        <test-method status="PASS" signature="updateProducto(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="updateProducto" duration-ms="7" started-at="2017-04-27T10:26:23Z" depends-on-methods="com.upc.edu.test.ProductoTest.addProducto" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="updateProducto(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="updateProducto" duration-ms="3" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.addProducto" finished-at="2017-05-15T21:01:39Z">
           <params>
             <param index="0">
               <value>
@@ -77,19 +77,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateProducto -->
-        <test-method status="PASS" signature="getProductoByCodigo()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="getProductoByCodigo" duration-ms="10" started-at="2017-04-27T10:26:23Z" depends-on-methods="com.upc.edu.test.ProductoTest.updateProducto" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="getProductoByCodigo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductoByCodigo" duration-ms="2" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.updateProducto" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getProductoByCodigo -->
-        <test-method status="PASS" signature="deleteProducto()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="deleteProducto" duration-ms="22" started-at="2017-04-27T10:26:23Z" depends-on-methods="com.upc.edu.test.ProductoTest.getProductoByCodigo" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="deleteProducto()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="deleteProducto" duration-ms="3" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.getProductoByCodigo" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteProducto -->
-        <test-method status="PASS" signature="finClase()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="finClase" is-config="true" duration-ms="1" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="finClase()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="finClase" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finClase -->
-        <test-method status="PASS" signature="finMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@285f38f6]" name="finMetodo" is-config="true" duration-ms="2" started-at="2017-04-27T10:26:23Z" finished-at="2017-04-27T10:26:23Z">
+        <test-method status="PASS" signature="finMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="finMetodo" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finMetodo -->

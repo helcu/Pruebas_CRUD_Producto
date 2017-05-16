@@ -4,6 +4,7 @@
     Author     : NightmareTK
 --%>
 
+<%@page import="com.upc.edu.helpers.MessageHelper"%>
 <%@page import="com.upc.edu.entity.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -177,12 +178,12 @@
                     <input placeholder="Nombre"value="<%=product == null ? "" : product.getNombre()%>" 
                            id="nombre" name="nombre" type="text" 
                            required = "required" 
-                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                            oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
                     <textarea id="desc" name="desc" placeholder="Descripcion" type="text" 
-                              required = "required" oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                              required = "required" oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                               oninput="this.setCustomValidity('')"><%=product == null ? "" : product.getDescripcion()%></textarea>
                 </fieldset>
                 <fieldset>
@@ -200,14 +201,14 @@
                     <input value="<%=product == null ? "" : product.getPrecio()%>" 
                            id="precio" name="precio" placeholder="Precio"
                            type="number" step="0.01" class="form-control"
-                           required = "required" oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           required = "required" oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                            oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
                     <% if (product != null) {%>
                     <input checked="<%=product.isProductoNacional()%>"
                            type="radio" name="isNacional" required="required"
-                           oninvalid="this.setCustomValidity('Este campo es obligatorio')"
+                           oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                            oninput="this.setCustomValidity('')"
                            value="<%=product.isProductoNacional()%>"> Nacional<br>
                     <input checked="<%=!product.isProductoNacional()%>"
@@ -228,15 +229,12 @@
                 </fieldset>
 
                 <fieldset>
-                    <button id="aceptar" name="aceptar" type="submit" class="btn btn-success btn-block"
-                            ><!-- data-toggle="modal" data-target="#ModalGuardar">-->
-                        Guardar
-                    </button>
-                    <a class="btn btn-danger btn-block" data-toggle="modal" data-target="#ModalCancelar"
+                    <button id="aceptar" name="aceptar" type="button" class="btn btn-success btn-block" 
+                    	data-toggle="modal" data-target="#ModalGuardar"> Guardar </button>
+                    <a class="btn btn-danger btn-block listId" data-toggle="modal" data-target="#ModalCancelar"
                        type="button">Cancelar</a>
-
                     
-                    <!--<div class="modal fade" id="ModalGuardar" role="dialog">
+                    <div class="modal fade" id="ModalGuardar" role="dialog">
                         <div class="modal-dialog">
                             
                             <div class="modal-content">
@@ -245,29 +243,11 @@
                                     <h4 class="modal-title">Confimación</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>¿Estás seguro de <%= product != null ? "editar el " : "agregar el nuevo "%>producto?</p>
+                                    <p> <%= product != null ? MessageHelper.messageConfEditProducto :
+                                    	MessageHelper.messageConfAddProducto %></p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary btn-block">Sí</button>
-                                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    
-                    <div class="modal fade" id="ModalCancelar" role="dialog">
-                        <div class="modal-dialog">
-                            
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Confimación</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>¿Estás seguro de cancelar la operación?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary btn-block">Sí</button>
                                     <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
                                 </div>
                             </div>
@@ -278,6 +258,26 @@
                 <p class="copyright">Designed by <a target="_blank" title="Colorlib">Luminous</a></p>
             </form>
         </div>
+        
+        
+        <div class="modal fade" id="ModalCancelar" role="dialog">
+	        <div class="modal-dialog">	
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                    <h4 style="color:black;" class="modal-title">Confimación</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <p style="color:black;"><%= MessageHelper.messageConfCancelarOperacion %></p>
+	                </div>
+	                <div class="modal-footer">
+	                    <a id="DeleteYesButton" href="ServletManageProductos" class="btn btn-primary btn-block">Sí</a>
+	                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
