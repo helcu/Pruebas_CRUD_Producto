@@ -142,7 +142,7 @@
             <h3 id="message"> <%= message == null ? "" : message%></h3>
 
             <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Código</th>
@@ -158,7 +158,7 @@
                 </table>
             </div>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellpadding="0" cellspacing="0" >
                     <tbody>
                         <%
                             ArrayList<Producto> productos = (ArrayList<Producto>) request.getAttribute("productos");
@@ -173,7 +173,8 @@
                             <td><%=item.isProductoNacional()%></td>
                             <td><%=item.isDescontinuado()%></td>
                             <td>
-                                <a class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
+                                <a id="btnEditar<%=item.getCodigo()%>"
+                                	class="btn btn-link btn-xs" href="ServletAddEditProducto?productId=<%=item.getCodigo()%>">
                                     <i class="fa fa-info-circle"></i> Editar
                                 </a> 
                                 <a class="btn btn-link btn-xs listId" 

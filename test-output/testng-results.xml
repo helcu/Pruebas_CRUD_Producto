@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="ProductoSuite" duration-ms="38006" started-at="2017-06-13T19:38:26Z" finished-at="2017-06-13T19:39:04Z">
+  <suite name="ProductoSuite" duration-ms="65994" started-at="2017-06-13T20:28:44Z" finished-at="2017-06-13T20:29:50Z">
     <groups>
     </groups>
-    <test name="ProductoWebDriverTest" duration-ms="38006" started-at="2017-06-13T19:38:26Z" finished-at="2017-06-13T19:39:04Z">
+    <test name="ProductoWebDriverTest" duration-ms="65994" started-at="2017-06-13T20:28:44Z" finished-at="2017-06-13T20:29:50Z">
       <class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest">
-        <test-method status="PASS" signature="inicioClase(java.lang.String, int)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="inicioClase" is-config="true" duration-ms="7632" started-at="2017-06-13T14:38:26Z" finished-at="2017-06-13T14:38:33Z">
+        <test-method status="PASS" signature="inicioClase(java.lang.String, int)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="inicioClase" is-config="true" duration-ms="7440" started-at="2017-06-13T15:28:44Z" finished-at="2017-06-13T15:28:51Z">
           <params>
             <param index="0">
               <value>
@@ -23,7 +23,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicioClase -->
-        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="11683" started-at="2017-06-13T14:38:33Z" data-provider="datosEntrada" finished-at="2017-06-13T14:38:45Z">
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="insertarProducto" duration-ms="11494" started-at="2017-06-13T15:28:51Z" data-provider="datosProductoAdd" finished-at="2017-06-13T15:29:03Z">
           <params>
             <param index="0">
               <value>
@@ -64,7 +64,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- insertarProducto -->
-        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="9163" started-at="2017-06-13T14:38:45Z" data-provider="datosEntrada" finished-at="2017-06-13T14:38:54Z">
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="insertarProducto" duration-ms="9158" started-at="2017-06-13T15:29:03Z" data-provider="datosProductoAdd" finished-at="2017-06-13T15:29:12Z">
           <params>
             <param index="0">
               <value>
@@ -105,7 +105,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- insertarProducto -->
-        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="9197" started-at="2017-06-13T14:38:54Z" data-provider="datosEntrada" finished-at="2017-06-13T14:39:04Z">
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="insertarProducto" duration-ms="9251" started-at="2017-06-13T15:29:12Z" data-provider="datosProductoAdd" finished-at="2017-06-13T15:29:21Z">
           <params>
             <param index="0">
               <value>
@@ -146,6 +146,148 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- insertarProducto -->
+        <test-method status="PASS" signature="editarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="editarProducto" duration-ms="9203" started-at="2017-06-13T15:29:21Z" data-provider="datosProductoEdit" depends-on-methods="com.upc.edu.test.seleniumwd.ProductoWebDriverTest.insertarProducto" finished-at="2017-06-13T15:29:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[editado3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[editado3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3.24]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[El producto se actualizó correctamente]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editarProducto -->
+        <test-method status="PASS" signature="editarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="editarProducto" duration-ms="9480" started-at="2017-06-13T15:29:31Z" data-provider="datosProductoEdit" depends-on-methods="com.upc.edu.test.seleniumwd.ProductoWebDriverTest.insertarProducto" finished-at="2017-06-13T15:29:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[editado2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[editado2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[4.32]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[El producto se actualizó correctamente]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editarProducto -->
+        <test-method status="PASS" signature="editarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="editarProducto" duration-ms="9117" started-at="2017-06-13T15:29:40Z" data-provider="datosProductoEdit" depends-on-methods="com.upc.edu.test.seleniumwd.ProductoWebDriverTest.insertarProducto" finished-at="2017-06-13T15:29:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[editado2 x2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[editado2 x2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[2.34]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[False]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[False]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[El producto se actualizó correctamente]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editarProducto -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@91161c7]" name="tearDown" is-config="true" duration-ms="476" started-at="2017-06-13T15:29:49Z" finished-at="2017-06-13T15:29:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.upc.edu.test.seleniumwd.ProductoWebDriverTest -->
     </test> <!-- ProductoWebDriverTest -->
   </suite> <!-- ProductoSuite -->

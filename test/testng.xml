@@ -21,6 +21,7 @@
 		<parameter name="navegador" value="firefox"/>
 		<parameter name="remoto" value="0"/>
 		<parameter name="rutaArchivoProductoAdd" value="W:\_Experimentos\CRUD_Producto\TestData\DataProductoAdd01.xls"/>
+		<parameter name="rutaArchivoProductoEdit" value="W:\_Experimentos\CRUD_Producto\TestData\DataProductoEdit01.xls"/>
 		<parameter name="fuenteDatos" value="Excel"/>
 		<classes>
 			<class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest" />

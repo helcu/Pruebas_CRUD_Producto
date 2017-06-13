@@ -26,8 +26,8 @@ public class ProductoWebDriverTest {
 		productoPage = new ProductoPage(navegador, iniciarSesionPage.getWebDriver());
 	}
 	
-	@DataProvider(name = "datosEntrada")
-	public static Object[][] datosPoblados(ITestContext context) {
+	@DataProvider(name = "datosProductoAdd")
+	public static Object[][] datosProductoAdd(ITestContext context) {
 		Object[][] datos = null;
 		String fuenteDatos = context.getCurrentXmlTest().getParameter("fuenteDatos");
 		System.out.println("Fuente de Datos: " + fuenteDatos);
@@ -40,8 +40,22 @@ public class ProductoWebDriverTest {
 		return datos;
 	}
 	
+	@DataProvider(name = "datosProductoEdit")
+	public static Object[][] datosProductoEdit(ITestContext context) {
+		Object[][] datos = null;
+		String fuenteDatos = context.getCurrentXmlTest().getParameter("fuenteDatos");
+		System.out.println("Fuente de Datos: " + fuenteDatos);
+		switch(fuenteDatos){
+			case "Excel":
+				String rutaArchivo = context.getCurrentXmlTest().getParameter("rutaArchivoProductoEdit");
+				datos = Excel.leerExcel(rutaArchivo);
+				break;
+		}
+		return datos;
+	}
 	
-	@Test(dataProvider = "datosEntrada")
+	
+	@Test(dataProvider = "datosProductoAdd")
 	public void insertarProducto(String nombre, String desc, String categ, String prize,
 			String nacion, String descontinuado, String valorEsperado) throws Exception {
 		try {
@@ -54,9 +68,22 @@ public class ProductoWebDriverTest {
 		}
 	}
 	
-	/*@AfterTest
+	@Test(dataProvider = "datosProductoEdit", dependsOnMethods = {"insertarProducto"})
+	public void editarProducto(String id, String nombre, String desc, String categ, String prize,
+			String nacion, String descontinuado, String valorEsperado) throws Exception {
+		try {
+			iniciarSesionPage.iniciarSesion("admin", "admin");
+			String valorObtenido = productoPage.edit(id.trim(), nombre.trim(), desc.trim(), categ, prize, nacion, descontinuado);
+			Assert.assertEquals(valorEsperado , valorObtenido);
+		}catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	@AfterTest
 	public void tearDown() throws Exception {
 		productoPage.cerrarPagina();
-	}*/
+	}
 	
 }
