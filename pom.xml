@@ -4,7 +4,6 @@
 
     <groupId>com.upc.edu.pe</groupId>
     <artifactId>CRUD_Producto</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>CRUD_Producto</name>
@@ -17,12 +16,13 @@
     
         
     <dependencies>
-        <dependency>
+    	<dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+    	
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -35,15 +35,67 @@
             <version>1.2</version>
         </dependency>
         
-        
-        
-		<!-- TESTNG --> 
+        <!-- TESTNG --> 
 		<dependency>
 		  <groupId>org.testng</groupId>
 		  <artifactId>testng</artifactId>
 		  <version>6.10</version>
 		  <scope>test</scope>
 		</dependency> 
+		<dependency>
+			<groupId>pe.com.tubodeguita</groupId>
+			<artifactId>TuBodeguitaCore</artifactId>
+			<version>2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testlink</groupId>
+			<artifactId>testlink-api-client-2.0</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testlink</groupId>
+			<artifactId>commons-logging-1.1</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testlink</groupId>
+			<artifactId>ws-commons-util-1.0.2</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testlink</groupId>
+			<artifactId>xmlrpc-common-3.1</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>testlink</groupId>
+			<artifactId>xmlrpc-client-3.1</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.14</version>
+			<scope>test</scope>
+		</dependency>
+		
         
     </dependencies>
 
@@ -108,4 +160,5 @@
         </plugins>
     </build>
 
+    <version>1.0-SNAPSHOT</version>
 </project>

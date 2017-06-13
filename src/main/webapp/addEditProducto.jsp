@@ -166,7 +166,7 @@
     <body>
         <% Producto product = (Producto) request.getAttribute("producto");%>
         <div class="container">  
-            <form id="contact" action="" method="post">
+            <form id="contact" action="ServletAddEditProducto" method="POST">
                 <input type="hidden" value="" name="id"/> 
                 <h3><%= product != null ? "Editar" : "Agregar"%> producto</h3>
                 <fieldset>
@@ -182,13 +182,13 @@
                            oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
-                    <textarea id="desc" name="desc" placeholder="Descripcion" type="text" 
+                    <textarea id="desc" name="desc" placeholder="Descripcion" 
                               required = "required" oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                               oninput="this.setCustomValidity('')"><%=product == null ? "" : product.getDescripcion()%></textarea>
                 </fieldset>
                 <fieldset>
                     <label>Categoria: </label>
-                    <select name="categoria" class="form-control">
+                    <select id="catego" name="catego" class="form-control">
                         <option value="1" <%=product==null ? "" : product.getCategoria()==1 ? "selected" : ""%>>café</option>
                         <option value="2" <%=product==null ? "" : product.getCategoria()==2 ? "selected" : ""%>>batería</option>
                         <option value="3" <%=product==null ? "" : product.getCategoria()==3 ? "selected" : ""%>>gaseosa</option>
@@ -198,33 +198,35 @@
                 </fieldset>
                 <fieldset>
                     <label>Precio: </label>
-                    <input value="<%=product == null ? "" : product.getPrecio()%>" 
+                    <input value="<%=product == null ? "" : product.getPrecio()%>" class="form-control"
                            id="precio" name="precio" placeholder="Precio"
-                           type="number" step="0.01" class="form-control"
+                           type="text"class="form-control" value="1,3"
                            required = "required" oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                            oninput="this.setCustomValidity('')">
                 </fieldset>
                 <fieldset>
                     <% if (product != null) {%>
-                    <input checked="<%=product.isProductoNacional()%>"
-                           type="radio" name="isNacional" required="required"
+                    <input <%=product.isProductoNacional()?"checked":""%>
+                           type="radio" name="nacional" required="required" id="nacional" name="nacional"
                            oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
-                           oninput="this.setCustomValidity('')"
-                           value="<%=product.isProductoNacional()%>"> Nacional<br>
-                    <input checked="<%=!product.isProductoNacional()%>"
-                           type="radio" name="isNacional" 
-                           value="<%=!product.isProductoNacional()%>"> No nacional<br>
+                           oninput="this.setCustomValidity('')" value="True"> Nacional<br>
+                    <input <%=!product.isProductoNacional()?"checked":""%>
+                           type="radio" name="nacional" id="nacional" value="False"> No nacional<br>
                     <%} else {%>
-                    <input type="radio" name="isNacional" value="True" required="required"> Nacional<br>
-                    <input type="radio" name="isNacional" value="False"> No nacional<br>
+                    <input type="radio" id="nacional" name="nacional" required="required"
+                    		checked="checked" value="True"> Nacional<br>
+                    <input type="radio" id="nacional" name="nacional"
+                    		value="False"> No nacional<br>
                     <%}%>
                 </fieldset>
                 <fieldset>
                     <% if (product != null) {%>
-                    <input checked="<%=product.isDescontinuado()%>"
-                           type="checkbox" name="isDescontinuado" value="True"> Descontinuado<br>
+                    <input <%=product.isDescontinuado()?"checked":""%> 
+                    		id="descontinuado" type="checkbox" name="descontinuado"
+                    		 value="True"> Descontinuado<br>
                     <%} else {%>
-                    <input type="checkbox" name="isDescontinuado" value="True"> Descontinuado<br>
+                    <input id="descontinuado" type="checkbox" name="descontinuado" 
+                    		value="True"> Descontinuado<br>
                     <%}%>
                 </fieldset>
 
@@ -247,7 +249,7 @@
                                     	MessageHelper.messageConfAddProducto %></p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary btn-block">Sí</button>
+                                    <button type="submit" class="btn btn-primary btn-block" id="btnYes">Sí</button>
                                     <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
                                 </div>
                             </div>

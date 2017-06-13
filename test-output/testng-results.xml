@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="CategoriaSuite" duration-ms="157" started-at="2017-05-16T02:01:39Z" finished-at="2017-05-16T02:01:39Z">
+  <suite name="ProductoSuite" duration-ms="38006" started-at="2017-06-13T19:38:26Z" finished-at="2017-06-13T19:39:04Z">
     <groups>
     </groups>
-    <test name="CategoriaTest" duration-ms="157" started-at="2017-05-16T02:01:39Z" finished-at="2017-05-16T02:01:39Z">
-      <class name="com.upc.edu.test.ProductoTest">
-        <test-method status="PASS" signature="inicioMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="inicioMetodo" is-config="true" duration-ms="10" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- inicioMetodo -->
-        <test-method status="PASS" signature="inicioClase()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="inicioClase" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- inicioClase -->
-        <test-method status="PASS" signature="addProducto(java.lang.String, java.lang.String, int, double, boolean, boolean)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="addProducto" duration-ms="79" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
+    <test name="ProductoWebDriverTest" duration-ms="38006" started-at="2017-06-13T19:38:26Z" finished-at="2017-06-13T19:39:04Z">
+      <class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest">
+        <test-method status="PASS" signature="inicioClase(java.lang.String, int)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="inicioClase" is-config="true" duration-ms="7632" started-at="2017-06-13T14:38:26Z" finished-at="2017-06-13T14:38:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Hype Battery]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[La mejor batería]]>
+                <![CDATA[0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inicioClase -->
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="11683" started-at="2017-06-13T14:38:33Z" data-provider="datosEntrada" finished-at="2017-06-13T14:38:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[USB]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[usb gratis]]>
               </value>
             </param>
             <param index="2">
@@ -34,66 +42,111 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[5.35]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[true]]>
+                <![CDATA[True]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[false]]>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Se ha añadido el producto satisfactoriamente]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addProducto -->
-        <test-method status="PASS" signature="getProductos()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductos" duration-ms="4" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getProductos -->
-        <test-method status="PASS" signature="getProductosByInfo(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductosByInfo" duration-ms="6" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
+        </test-method> <!-- insertarProducto -->
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="9163" started-at="2017-06-13T14:38:45Z" data-provider="datosEntrada" finished-at="2017-06-13T14:38:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[batería]]>
+                <![CDATA[USB2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[usb gratis2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[False]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Se ha añadido el producto satisfactoriamente]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getProductosByInfo -->
-        <test-method status="PASS" signature="updateProducto(java.lang.String)[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="updateProducto" duration-ms="3" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.addProducto" finished-at="2017-05-15T21:01:39Z">
+        </test-method> <!-- insertarProducto -->
+        <test-method status="PASS" signature="insertarProducto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.upc.edu.test.seleniumwd.ProductoWebDriverTest@5c3bd550]" name="insertarProducto" duration-ms="9197" started-at="2017-06-13T14:38:54Z" data-provider="datosEntrada" finished-at="2017-06-13T14:39:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Hyper Battery]]>
+                <![CDATA[USB3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[usbgratis3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3.5]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[True]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[False]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Se ha añadido el producto satisfactoriamente]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- updateProducto -->
-        <test-method status="PASS" signature="getProductoByCodigo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="getProductoByCodigo" duration-ms="2" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.updateProducto" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getProductoByCodigo -->
-        <test-method status="PASS" signature="deleteProducto()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="deleteProducto" duration-ms="3" started-at="2017-05-15T21:01:39Z" depends-on-methods="com.upc.edu.test.ProductoTest.getProductoByCodigo" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteProducto -->
-        <test-method status="PASS" signature="finClase()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="finClase" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- finClase -->
-        <test-method status="PASS" signature="finMetodo()[pri:0, instance:com.upc.edu.test.ProductoTest@48eff760]" name="finMetodo" is-config="true" duration-ms="0" started-at="2017-05-15T21:01:39Z" finished-at="2017-05-15T21:01:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- finMetodo -->
-      </class> <!-- com.upc.edu.test.ProductoTest -->
-    </test> <!-- CategoriaTest -->
-  </suite> <!-- CategoriaSuite -->
+        </test-method> <!-- insertarProducto -->
+      </class> <!-- com.upc.edu.test.seleniumwd.ProductoWebDriverTest -->
+    </test> <!-- ProductoWebDriverTest -->
+  </suite> <!-- ProductoSuite -->
 </testng-results>

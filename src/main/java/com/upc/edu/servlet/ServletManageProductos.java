@@ -65,7 +65,7 @@ public class ServletManageProductos extends HttpServlet {
         if(productoInfo == null) {
             doGet(request, response);
         }        
-        
+        System.out.println("--->" + request.getParameter("message"));
         final ProductoBusiness productoBusiness = new ProductoBusiness();
                 
         request.setAttribute("productos", productoBusiness.getProductosByInfo(productoInfo));

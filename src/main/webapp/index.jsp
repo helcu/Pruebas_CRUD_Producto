@@ -129,7 +129,7 @@
                                required="required" 
                                oninvalid="this.setCustomValidity('<%= MessageHelper.messageCampoObligatorio %>')"
                                oninput="this.setCustomValidity('')" />
-                        <button>Iniciar sesión</button>
+                        <button id="btnLogin">Iniciar sesión</button>
                     </form>
                 </div>
             </div>

@@ -129,7 +129,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <a class="btn btn-success btn-xs" href="ServletAddEditProducto?productId=-1">
+                            <a class="btn btn-success btn-xs" href="ServletAddEditProducto?productId=-1" id="btnNuevo">
                                 <i class="fa fa-info-circle"></i> Nuevo
                             </a> 
                         </span>

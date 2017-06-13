@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [CategoriaSuite]">
-  <test name="CategoriaTest(failed)">
-    <parameter name="nombreUpd" value="Hyper Battery"/>
-    <parameter name="productoInfo" value="batería"/>
-    <parameter name="nombreAdd" value="Hype Battery"/>
-    <parameter name="isDescAdd" value="false"/>
-    <parameter name="descAdd" value="La mejor batería"/>
-    <parameter name="categAdd" value="2"/>
-    <parameter name="isNacAdd" value="true"/>
-    <parameter name="precAdd" value="5.35"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CategoriaSuite]">
+  <test name="ProductoWebDriverTest(failed)">
+    <parameter name="navegador" value="firefox"/>
+    <parameter name="rutaArchivo" value="W:\_Experimentos\Data\DataProductoAdd01.xls"/>
+    <parameter name="remoto" value="0"/>
+    <parameter name="fuenteDatos" value="Excel"/>
     <classes>
-      <class name="com.upc.edu.test.ProductoTest">
+      <class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest">
         <methods>
-          <include name="finMetodo"/>
           <include name="inicioClase"/>
-          <include name="addProducto"/>
-          <include name="getProductoByCodigo"/>
-          <include name="deleteProducto"/>
-          <include name="inicioMetodo"/>
-          <include name="finClase"/>
-          <include name="updateProducto"/>
+          <include name="insertarProducto" invocation-numbers="2"/>
         </methods>
-      </class> <!-- com.upc.edu.test.ProductoTest -->
+      </class> <!-- com.upc.edu.test.seleniumwd.ProductoWebDriverTest -->
     </classes>
-  </test> <!-- CategoriaTest(failed) -->
+  </test> <!-- ProductoWebDriverTest(failed) -->
 </suite> <!-- Failed suite [CategoriaSuite] -->

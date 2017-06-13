@@ -74,22 +74,23 @@ public class ServletAddEditProducto extends HttpServlet {
         nombre = request.getParameter("nombre");
         descripcion = request.getParameter("desc");
         
-        if(request.getParameter("categoria") == null) {
-    		request.getRequestDispatcher("ServletManageProductos").forward(request, response);
-    	}    	
-        categoria = Integer.parseInt(request.getParameter("categoria"));
+        if(request.getParameter("catego") == null) {
+    		request.getRequestDispatcher("ServletLogin").forward(request, response);
+    	}  	
+        categoria = Integer.parseInt(request.getParameter("catego"));
         
         if(request.getParameter("precio") == null) {
-    		request.getRequestDispatcher("ServletManageProductos").forward(request, response);
+    		request.getRequestDispatcher("ServletLogin").forward(request, response);
     	}    	
         precio = Double.parseDouble(request.getParameter("precio"));
         
-        if(request.getParameter("isNacional") == null) {
-    		request.getRequestDispatcher("ServletManageProductos").forward(request, response);
-    	}    	
-        productoNacional = Boolean.parseBoolean(request.getParameter("isNacional"));
-                
-        descontinuado = Boolean.parseBoolean(request.getParameter("isDescontinuado"));
+        if(request.getParameter("nacional") == null) {
+    		request.getRequestDispatcher("ServletLogin").forward(request, response);
+    	} 
+        productoNacional = Boolean.parseBoolean(request.getParameter("nacional"));
+        
+        descontinuado = request.getParameter("descontinuado") == null ? false : true;
+        
         
         
         ProductoBusiness productoBusiness = new ProductoBusiness();
@@ -108,6 +109,7 @@ public class ServletAddEditProducto extends HttpServlet {
 		    				descontinuado));
             
             request.setAttribute("message", MessageHelper.messageAddProducto);
+            //response.sendRedirect("manageProducto.jsp?message=" + MessageHelper.messageAddProducto);
             
         } else {
             
@@ -123,8 +125,9 @@ public class ServletAddEditProducto extends HttpServlet {
             				descontinuado));
         	
         	request.setAttribute("message", MessageHelper.messageEditProduct);
+        	 //response.sendRedirect("manageProducto.jsp?message=" + MessageHelper.messageEditProduct);
         }
-        
+       
         request.getRequestDispatcher("ServletManageProductos").forward(request, response);
     }
 

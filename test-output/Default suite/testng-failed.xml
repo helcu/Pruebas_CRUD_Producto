@@ -3,19 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.upc.edu.test.ProductoTest">
+      <class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest">
         <methods>
-          <include name="finMetodo"/>
-          <include name="inicioClase"/>
-          <include name="addProducto"/>
-          <include name="getProductoByCodigo"/>
-          <include name="deleteProducto"/>
-          <include name="getProductosByInfo"/>
-          <include name="inicioMetodo"/>
-          <include name="finClase"/>
-          <include name="updateProducto"/>
+          <include name="insertarCategoria"/>
         </methods>
-      </class> <!-- com.upc.edu.test.ProductoTest -->
+      </class> <!-- com.upc.edu.test.seleniumwd.ProductoWebDriverTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

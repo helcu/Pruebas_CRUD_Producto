@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ProductoSuite" parallel="none" >
+	<test name="ProductoTest" enabled="false">
+	  	<parameter name="nombreAdd" value="Hype Battery"/>
+	  	<parameter name="descAdd" value="La mejor batería"/>
+	  	<parameter name="categAdd" value="2"/>
+	  	<parameter name="precAdd" value="5.35"/>
+	  	<parameter name="isNacAdd" value="true"/>
+	  	<parameter name="isDescAdd" value="false"/>
+	  	
+	  	<parameter name="nombreUpd" value="Hyper Battery"/>
+	  	
+	  	<parameter name="productoInfo" value="batería"></parameter>  	
+	    <classes>
+	      <class name="com.upc.edu.test.ProductoTest"/>
+		</classes>
+	</test> 
+	<test name="ProductoWebDriverTest" enabled="true">
+		<parameter name="navegador" value="firefox"/>
+		<parameter name="remoto" value="0"/>
+		<parameter name="rutaArchivoProductoAdd" value="W:\_Experimentos\CRUD_Producto\TestData\DataProductoAdd01.xls"/>
+		<parameter name="fuenteDatos" value="Excel"/>
+		<classes>
+			<class name="com.upc.edu.test.seleniumwd.ProductoWebDriverTest" />
+		</classes>
+	</test>
+</suite>
