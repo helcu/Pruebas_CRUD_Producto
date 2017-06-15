@@ -6,12 +6,8 @@
 package com.upc.edu.servlet;
 
 import com.upc.edu.business.ProductoBusiness;
-import com.upc.edu.dao.ProductoDAO;
-import com.upc.edu.entity.Producto;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +35,9 @@ public class ServletManageProductos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	
-    	
+    	response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff"); 	
     	
     	final ProductoBusiness productoBusiness = new ProductoBusiness();
     	
@@ -59,7 +56,11 @@ public class ServletManageProductos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
+        
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
         final String productoInfo = request.getParameter("productInfo");
                
         if(productoInfo == null) {

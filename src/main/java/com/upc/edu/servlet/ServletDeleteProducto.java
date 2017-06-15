@@ -36,7 +36,10 @@ public class ServletDeleteProducto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	    	
+    	response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	if(request.getParameter("productoId") != null) {
     		ProductoDAO.getInstance()
     			.delete(Integer.parseInt(request.getParameter("productoId")));
@@ -60,6 +63,10 @@ public class ServletDeleteProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	if(request.getParameter("productoId") != null) {
     		ProductoDAO.getInstance()
     			.delete(Integer.parseInt(request.getParameter("productoId")));

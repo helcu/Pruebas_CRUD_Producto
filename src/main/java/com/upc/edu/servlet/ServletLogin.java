@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.upc.edu.dao.ProductoDAO;
-import com.upc.edu.helpers.MessageHelper;
-
 /**
  *
  * @author Usuario
@@ -39,6 +36,11 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
@@ -53,6 +55,10 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
+        
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
         
         final String user = request.getParameter("user");
         final String pass = request.getParameter("pass");

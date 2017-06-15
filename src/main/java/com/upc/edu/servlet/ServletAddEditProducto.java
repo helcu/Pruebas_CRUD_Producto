@@ -6,7 +6,6 @@
 package com.upc.edu.servlet;
 
 import com.upc.edu.business.ProductoBusiness;
-import com.upc.edu.dao.ProductoDAO;
 import com.upc.edu.entity.Producto;
 import com.upc.edu.helpers.MessageHelper;
 
@@ -37,7 +36,11 @@ public class ServletAddEditProducto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	    	
+    	
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	if(request.getParameter("productId") == null) {
     		request.getRequestDispatcher("/addEditProducto.jsp").forward(request, response);
     	}    	
@@ -64,6 +67,10 @@ public class ServletAddEditProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
         String nombre;
         String descripcion;
         int categoria;

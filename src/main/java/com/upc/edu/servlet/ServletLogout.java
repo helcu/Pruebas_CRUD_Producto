@@ -34,6 +34,10 @@ public class ServletLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	final HttpSession session = request.getSession(false);
     	if(session!=null)
     		session.invalidate();
@@ -53,6 +57,10 @@ public class ServletLogout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setHeader("X-Frame-Options", "DENY");
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.addHeader("X-Content-Type-Options", "nosniff");
+        
     	final HttpSession session = request.getSession();
         session.invalidate();
 
